@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts 
+Configuration 1.3//EN" "http://struts.apache.org/dtds/struts-config_1_3.dtd">
+<struts-config>
+	<form-beans type="org.apache.struts.action.ActionFormBean">
+		<form-bean name="quanLyAccountForm" type="form.QuanLyAccountForm" />
+		<form-bean name="accountForm" type="form.AccountForm" />
+		<form-bean name="quanLyDongGopForm" type="form.QuanLyDongGopForm" />
+		<form-bean name="quanLyDashboardForm" type="form.QuanLyDashboardForm" />
+	</form-beans>
+	<!-- Global Exceptions -->
+	<global-exceptions>
+	</global-exceptions>
+
+	<!-- Global Forwards -->
+	<global-forwards>
+		
+	</global-forwards>
+	<action-mappings>
+		<action  input="/admin/admin.jsp" name="quanLyDashboardForm"
+			path="/admin/dashboard" scope="request" type="action.QuanLyDashboardAction">
+			<forward name="qlDashboard" path="/admin/admin.jsp" />
+		</action>
+		<action  input="/admin/quanLyTaiKhoan.jsp" name="quanLyAccountForm"
+			path="/admin/quan-ly-tai-khoan" scope="request" type="action.QuanLyAccountAction">
+			<forward name="dsAccount" path="/admin/quanLyTaiKhoan.jsp" />
+		</action>
+		<action input="/suaAccount.jsp" name="accountForm"
+			path="/admin/suaTK" scope="request" type="action.SuaAccountAction">
+			<forward name="suaTK" path="/admin/suaAccount.jsp" />
+			<forward name="suaTKxong" path="/admin/quan-ly-tai-khoan.do"  />
+		</action>
+		<action input="/admin/quanLyTaiKhoan.jsp" name="accountForm"
+			path="/admin/xoaTK" scope="request" type="action.XoaAccountAction">
+			<forward name="xoaTK" path="/admin/xoaAccount.jsp" />
+			<forward name="xoaTKxong" path="/admin/quan-ly-tai-khoan.do" />
+		</action>
+		
+		<action  input="/admin/quanlydonggop/quanLyDongGop.jsp" name="quanLyDongGopForm"
+			path="/admin/quanlydonggop/quan-ly-dong-gop" scope="request" type="action.QuanLyDongGopAction">
+			<forward name="dsDongGop" path="/admin/quanlydonggop/quanLyDongGop.jsp" />
+		</action>
+	</action-mappings>
+	<message-resources parameter="action.ApplicationResources" />
+	
+</struts-config>
