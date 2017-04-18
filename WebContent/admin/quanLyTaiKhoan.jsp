@@ -23,7 +23,9 @@
 <link href="../assets/css/dataTables.bootstrap.css" rel="stylesheet">
 <link href="../assets/css/dataTables.bootstrap.min.css" rel="stylesheet">
 <!-- Graph CSS -->
-<link href="../assets/css/font-awesome.css" rel="stylesheet"> 
+<link href="../assets/css/font-awesome.css" rel="stylesheet">
+<!-- lined-icons -->
+<link rel="stylesheet" href="../assets/css/icon-font.min.css" type='text/css' /> 
 <!-- jQuery -->
 <script src="../assets/js/jquery-2.1.4.min.js"></script>
 <script src="../assets/js/jquery.min.js"></script>
@@ -48,7 +50,7 @@
 <div class="left-content">
 	   <div class="mother-grid-inner">
             <!--header start here-->
-			<jsp:include page="header.jsp" />
+			<jsp:include page="/admin/header.html" flush="true"/>
 			<!--heder end here-->
 <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="admin.jsp">Trang Chủ</a><i class="fa fa-angle-right"></i>Tài Khoản</li>

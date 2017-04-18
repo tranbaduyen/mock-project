@@ -33,6 +33,10 @@ public class QuanLyDashboardAction extends Action{
 	public ActionForward execute(ActionMapping mapping, ActionForm form,
 			HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
+		response.setContentType("text/html; charset=UTF-8");
+		request.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");
+		
 		QuanLyDashboardForm quanLyDashboardForm = (QuanLyDashboardForm) form;
 		
 		ThongKeBO thongKeBO = new ThongKeBO();

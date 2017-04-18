@@ -9,13 +9,24 @@ package model.bean;
  */
 public class GiaiDoan {
 	private int maGiaiDoan;
-	private int maThoiKy;
+	private int maThoiKi;
+	private String tenThoiKi;
 	private String tenGiaiDoan;
 	private String ngayBatDau;
 	private String ngayKetThuc;
 	private String noiDung;
 	private String banDoGiaiDoan;
 	private String hinhAnh;
+	
+	private int maThoiKy;
+
+	
+	public int getMaThoiKy() {
+		return maThoiKy;
+	}
+	public void setMaThoiKy(int maThoiKy) {
+		this.maThoiKy = maThoiKy;
+	}
 	/**
 	 * @return the maGiaiDoan
 	 */
@@ -31,14 +42,14 @@ public class GiaiDoan {
 	/**
 	 * @return the maThoiKy
 	 */
-	public int getMaThoiKy() {
-		return maThoiKy;
+	public int getMaThoiKi() {
+		return maThoiKi;
 	}
 	/**
 	 * @param maThoiKy the maThoiKy to set
 	 */
-	public void setMaThoiKy(int maThoiKy) {
-		this.maThoiKy = maThoiKy;
+	public void setMaThoiKi(int maThoiKi) {
+		this.maThoiKi = maThoiKi;
 	}
 	/**
 	 * @return the tenGiaiDoan
@@ -111,6 +122,18 @@ public class GiaiDoan {
 	 */
 	public void setHinhAnh(String hinhAnh) {
 		this.hinhAnh = hinhAnh;
+	}
+	/**
+	 * @return the tenThoiKi
+	 */
+	public String getTenThoiKi() {
+		return tenThoiKi;
+	}
+	/**
+	 * @param tenThoiKi the tenThoiKi to set
+	 */
+	public void setTenThoiKi(String tenThoiKi) {
+		this.tenThoiKi = tenThoiKi;
 	}
 	
 	

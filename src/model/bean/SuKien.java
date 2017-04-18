@@ -8,8 +8,8 @@ package model.bean;
  *
  */
 public class SuKien {
-	private int maNhanVat;
-	private String tenNhanVat;
+	private int maSuKien;
+	private String tenSuKien;
 	private String ngayBatDau;
 	private String ngayKetThuc;
 	private String noiDung;
@@ -18,29 +18,118 @@ public class SuKien {
 	private String tenGiaiDoan;
 	private int maPhanLoai;
 	private String tenPhanLoai;
-	/**
-	 * @return the maNhanVat
-	 */
+	private String nguon;
+	private int pheDuyet;
+	private int maThoiKi;
+	private String tenThoiKi;
+	
+	private int soLuongLuotXemNgay;
+	private int soLuongLuotXemTuan;
+	private int soLuongLuotXemThang;
+	private int soLuongLuotXemNam;
+	private int soLuongLuotXem;
+	
+
+	
+	private int maNhanVat;
+	private String tenNhanVat;
+
+	
 	public int getMaNhanVat() {
 		return maNhanVat;
 	}
-	/**
-	 * @param maNhanVat the maNhanVat to set
-	 */
 	public void setMaNhanVat(int maNhanVat) {
 		this.maNhanVat = maNhanVat;
 	}
-	/**
-	 * @return the tenNhanVat
-	 */
 	public String getTenNhanVat() {
 		return tenNhanVat;
 	}
-	/**
-	 * @param tenNhanVat the tenNhanVat to set
-	 */
 	public void setTenNhanVat(String tenNhanVat) {
 		this.tenNhanVat = tenNhanVat;
+	}
+	/**
+	 * @return the soLuongLuotXemNgay
+	 */
+	public int getSoLuongLuotXemNgay() {
+		return soLuongLuotXemNgay;
+	}
+	/**
+	 * @param soLuongLuotXemNgay the soLuongLuotXemNgay to set
+	 */
+	public void setSoLuongLuotXemNgay(int soLuongLuotXemNgay) {
+		this.soLuongLuotXemNgay = soLuongLuotXemNgay;
+	}
+	/**
+	 * @return the soLuongLuotXemTuan
+	 */
+	public int getSoLuongLuotXemTuan() {
+		return soLuongLuotXemTuan;
+	}
+	/**
+	 * @param soLuongLuotXemTuan the soLuongLuotXemTuan to set
+	 */
+	public void setSoLuongLuotXemTuan(int soLuongLuotXemTuan) {
+		this.soLuongLuotXemTuan = soLuongLuotXemTuan;
+	}
+	/**
+	 * @return the soLuongLuotXemThang
+	 */
+	public int getSoLuongLuotXemThang() {
+		return soLuongLuotXemThang;
+	}
+	/**
+	 * @param soLuongLuotXemThang the soLuongLuotXemThang to set
+	 */
+	public void setSoLuongLuotXemThang(int soLuongLuotXemThang) {
+		this.soLuongLuotXemThang = soLuongLuotXemThang;
+	}
+	/**
+	 * @return the soLuongLuotXemNam
+	 */
+	public int getSoLuongLuotXemNam() {
+		return soLuongLuotXemNam;
+	}
+	/**
+	 * @param soLuongLuotXemNam the soLuongLuotXemNam to set
+	 */
+	public void setSoLuongLuotXemNam(int soLuongLuotXemNam) {
+		this.soLuongLuotXemNam = soLuongLuotXemNam;
+	}
+	/**
+	 * @return the soLuongLuotXem
+	 */
+	public int getSoLuongLuotXem() {
+		return soLuongLuotXem;
+	}
+	/**
+	 * @param soLuongLuotXem the soLuongLuotXem to set
+	 */
+	public void setSoLuongLuotXem(int soLuongLuotXem) {
+		this.soLuongLuotXem = soLuongLuotXem;
+	}
+	/**
+	 * @return the maSuKien
+	 */
+	public int getMaSuKien() {
+		return maSuKien;
+	}
+	/**
+	 * @param maSuKien the maSuKien to set
+	 */
+	public void setMaSuKien(int maSuKien) {
+		this.maSuKien = maSuKien;
+	}
+	/**
+	 * @return the tenSuKien
+	 */
+	public String getTenSuKien() {
+		return tenSuKien;
+	}
+	/**
+	 * @param tenSuKien the tenSuKien to set
+	 */
+	public void setTenSuKien(String tenSuKien) {
+		this.tenSuKien = tenSuKien;
 	}
 	/**
 	 * @return the ngayBatDau
@@ -137,6 +226,54 @@ public class SuKien {
 	 */
 	public void setTenPhanLoai(String tenPhanLoai) {
 		this.tenPhanLoai = tenPhanLoai;
+	}
+	/**
+	 * @return the nguon
+	 */
+	public String getNguon() {
+		return nguon;
+	}
+	/**
+	 * @param nguon the nguon to set
+	 */
+	public void setNguon(String nguon) {
+		this.nguon = nguon;
+	}
+	/**
+	 * @return the pheDuyet
+	 */
+	public int getPheDuyet() {
+		return pheDuyet;
+	}
+	/**
+	 * @param pheDuyet the pheDuyet to set
+	 */
+	public void setPheDuyet(int pheDuyet) {
+		this.pheDuyet = pheDuyet;
+	}
+	/**
+	 * @return the maThoiKi
+	 */
+	public int getMaThoiKi() {
+		return maThoiKi;
+	}
+	/**
+	 * @param maThoiKi the maThoiKi to set
+	 */
+	public void setMaThoiKi(int maThoiKi) {
+		this.maThoiKi = maThoiKi;
+	}
+	/**
+	 * @return the tenThoiKi
+	 */
+	public String getTenThoiKi() {
+		return tenThoiKi;
+	}
+	/**
+	 * @param tenThoiKi the tenThoiKi to set
+	 */
+	public void setTenThoiKi(String tenThoiKi) {
+		this.tenThoiKi = tenThoiKi;
 	}
 	
 	

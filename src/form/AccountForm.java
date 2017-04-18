@@ -3,9 +3,13 @@
  */
 package form;
 
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.apache.struts.action.ActionForm;
+import org.apache.struts.action.ActionMapping;
 
 import model.bean.Account;
 
@@ -146,6 +150,15 @@ public class AccountForm extends ActionForm{
 	public void setHinhDaiDien(String hinhDaiDien) {
 		this.hinhDaiDien = hinhDaiDien;
 	}
-	
+	@Override
+	public void reset(ActionMapping mapping, HttpServletRequest request) {
+		// TODO Auto-generated method stub
+		try {
+			request.setCharacterEncoding("UTF-8");
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 	
 }

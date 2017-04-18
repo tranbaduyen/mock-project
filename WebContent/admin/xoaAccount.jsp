@@ -26,7 +26,10 @@
 <!-- Waves Effect Css -->
 <link href="../assets/plugin/node-waves/waves.css" rel="stylesheet" />
 <!-- Graph CSS -->
-<link href="../assets/css/font-awesome.css" rel="stylesheet"> 
+<link href="../assets/css/font-awesome.css" rel="stylesheet">
+<!-- lined-icons -->
+<link rel="stylesheet" href="../assets/css/icon-font.min.css" type='text/css' />
+
 <!-- jQuery -->
 <script src="../assets/js/jquery-2.1.4.min.js"></script>
 <script src="../assets/js/jquery.min.js"></script>
@@ -52,7 +55,7 @@
 <div class="left-content">
 	   <div class="mother-grid-inner">
             <!--header start here-->
-			<jsp:include page="header.jsp" />
+			<jsp:include page="header.html" flush="true"/>
 			<!--heder end here-->
 <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="admin.jsp">Trang Chủ</a><i class="fa fa-angle-right"></i>Tài Khoản</li>
@@ -94,7 +97,7 @@
 				        
 				        <div class="row form-group">
 				            <div class="col-lg-3 col-lg-offset-2">
-				                <html:submit styleClass="btn btn-primary waves-effect"  property="submit" onclick="myAlertFunction(event);">Xác nhận</html:submit>
+				                <html:submit styleClass="btn btn-primary waves-effect" styleId="submitDelete"  property="submit" value="submit" onclick="myAlertFunction(event);"></html:submit>
 				                <button class="btn btn-primary" onclick="history.go(-1);">Quay lại</button>
 				            </div>
 				        </div>
@@ -125,7 +128,7 @@
 		<!-- /script-for sticky-nav -->
 		<script>
 		function myAlertFunction(event) {
-			  event.preventDefault()
+			  event.preventDefault();
 			  swal({
 			      title: "Bạn có chắc muốn xóa ?",
 			      text: "Tài khoản",
@@ -134,8 +137,9 @@
 			      confirmButtonColor: "#DD6B55",
 			      confirmButtonText: "OK",
 			      cancelButtonText: "Hủy",
-			      closeOnConfirm: false,
-			      closeOnCancel: false
+			      closeOnConfirm: true,
+			      closeOnCancel: false,
+			      html: false
 			    },
 			    function(isConfirm) {
 			      if (isConfirm) {
@@ -143,9 +147,9 @@
 			          title: "Đã xóa",
 			          text: "Thành công",
 			          type: "success"
-			        }, function() {
-			          $("#deleteForm").submit();
 			        });
+			        
+			        //$(event.currentTarget).trigger(event.type, {'send': true});
 			        console.log('done');
 			        return true;
 			      } else {
@@ -154,6 +158,9 @@
 			      }
 			    });
 			}
+		</script>
+		<script>
+		
 		</script>
 <!--inner block start here-->
 <div class="inner-block">

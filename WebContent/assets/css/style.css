@@ -825,7 +825,7 @@ i.fa.fa-angle-down{
 }
 .profile_details_drop a.dropdown-toggle {
     display:block;
-	padding:0em 3em 0 1em;
+	/*padding:0em 3em 0 1em;*/
 }
 .profile_img span.prfil-img{
 	float:left;
@@ -862,6 +862,10 @@ ul.dropdown-menu.drp-mnu li {
 	color:#fff;
 	line-height:1em;
 	font-weight:700;
+	overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 140px;
 }
 .user-name span {
     font-size: 16px;
@@ -4263,20 +4267,26 @@ canvas#bar,canvas#line,canvas#pie {
     height: 300px !important;
 }
 .charts-grids.widget {
-    padding: 2em;
+    padding: 0.5em;
     background: #fff;
+    padding-right: 0;
+    padding-left: 0;
 }
 .w3layouts-char {
     padding-left: 0;
+	padding-right: 0;
 }
 .w3l-char {
     padding-right: 0;
+	padding-left: 0;
 }
 .w3ls-high {
-    padding-left: 0;
+ 
+	padding-right: 0;
 }
 .agileits-high {
-    padding-right: 0;
+ padding-right: 0;
+	
 }
 /*--form--*/
 .grid-form {
@@ -5151,7 +5161,7 @@ header.widget-header h4 {
     width: 85%;
 }
 .profile_details_drop a.dropdown-toggle {
-    padding: 0em 1em 0 1em;
+    /*padding: 0em 1em 0 1em;*/
 }
 .profile_details li a i.fa {
     font-size: 1.6em;

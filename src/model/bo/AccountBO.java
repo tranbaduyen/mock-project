@@ -29,5 +29,6 @@ public class AccountBO {
 	public void xoaAccount(String userName) {
 		accountDAO.xoaAccount(userName);
 	}
+	
 
 }

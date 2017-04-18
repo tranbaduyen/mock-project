@@ -4,6 +4,7 @@ public class ThoiKi {
 	private int maThoiKi;
 	private String tenThoiKi;
 	private String noiDung;
+	
 	/**
 	 * @return the maThoiKi
 	 */

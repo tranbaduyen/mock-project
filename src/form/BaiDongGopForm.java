@@ -3,16 +3,21 @@
  */
 package form;
 
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
+
+import javax.servlet.http.HttpServletRequest;
 
 import model.bean.GiaiDoan;
 import model.bean.NhanVat;
 import model.bean.NhanVatDongGop;
+import model.bean.PhanLoaiSuKien;
 import model.bean.SuKien;
 import model.bean.SuKienDongGop;
 import model.bean.ThoiKi;
 
 import org.apache.struts.action.ActionForm;
+import org.apache.struts.action.ActionMapping;
 
 /**
  * @author HCD-Fresher161
@@ -21,6 +26,8 @@ import org.apache.struts.action.ActionForm;
 public class BaiDongGopForm extends ActionForm{
 	private int maBDSK;
 	private int maBDNV;
+	private int maGDNV;
+	private int maSKNV;
 	private int maSuKien;
 	private String tenSuKien;
 	private String tenNhanVat;
@@ -29,6 +36,12 @@ public class BaiDongGopForm extends ActionForm{
 	private String ngayDang;
 	private String ngayBatDau;
 	private String ngayKetThuc;
+	private String namSinh;
+	private String namMat;
+	private String tuNgayGDNV;
+	private String denNgayGDNV;
+	private String tuNgaySKNV;
+	private String denNgaySKNV;
 	private String noiDung;
 	private String hinhAnh;
 	private int maPhanLoai;
@@ -40,14 +53,30 @@ public class BaiDongGopForm extends ActionForm{
 	private int maThoiKi;
 	private int maGiaiDoan;
 	private String tenGiaiDoan;
+	private ArrayList<SuKien> listSuKien;
 	private ArrayList<ThoiKi> listThoiKi;
 	private ArrayList<GiaiDoan> listGiaiDoan;
+	private ArrayList<PhanLoaiSuKien> listPhanLoaiSuKien;
 	private String submitSK;
 	private String submitNV;
+	private String submit;
 	private SuKienDongGop suKienDongGop;
 	private NhanVatDongGop nhanVatDongGop;
 	private SuKien suKien;
 	private NhanVat nhanVat;
+	
+	/**
+	 * @return the submit
+	 */
+	public String getSubmit() {
+		return submit;
+	}
+	/**
+	 * @param submit the submit to set
+	 */
+	public void setSubmit(String submit) {
+		this.submit = submit;
+	}
 	/**
 	 * @return the maBDSK
 	 */
@@ -396,8 +425,137 @@ public class BaiDongGopForm extends ActionForm{
 	public void setTenPhanLoai(String tenPhanLoai) {
 		this.tenPhanLoai = tenPhanLoai;
 	}
+	/**
+	 * @return the listPhanLoaiSuKien
+	 */
+	public ArrayList<PhanLoaiSuKien> getListPhanLoaiSuKien() {
+		return listPhanLoaiSuKien;
+	}
+	/**
+	 * @param listPhanLoaiSuKien the listPhanLoaiSuKien to set
+	 */
+	public void setListPhanLoaiSuKien(ArrayList<PhanLoaiSuKien> listPhanLoaiSuKien) {
+		this.listPhanLoaiSuKien = listPhanLoaiSuKien;
+	}
+	/**
+	 * @return the maGDNV
+	 */
+	public int getMaGDNV() {
+		return maGDNV;
+	}
+	/**
+	 * @param maGDNV the maGDNV to set
+	 */
+	public void setMaGDNV(int maGDNV) {
+		this.maGDNV = maGDNV;
+	}
+	/**
+	 * @return the maSKNV
+	 */
+	public int getMaSKNV() {
+		return maSKNV;
+	}
+	/**
+	 * @param maSKNV the maSKNV to set
+	 */
+	public void setMaSKNV(int maSKNV) {
+		this.maSKNV = maSKNV;
+	}
+	/**
+	 * @return the namSinh
+	 */
+	public String getNamSinh() {
+		return namSinh;
+	}
+	/**
+	 * @param namSinh the namSinh to set
+	 */
+	public void setNamSinh(String namSinh) {
+		this.namSinh = namSinh;
+	}
+	/**
+	 * @return the namMat
+	 */
+	public String getNamMat() {
+		return namMat;
+	}
+	/**
+	 * @param namMat the namMat to set
+	 */
+	public void setNamMat(String namMat) {
+		this.namMat = namMat;
+	}
+	/**
+	 * @return the tuNgayGDNV
+	 */
+	public String getTuNgayGDNV() {
+		return tuNgayGDNV;
+	}
+	/**
+	 * @param tuNgayGDNV the tuNgayGDNV to set
+	 */
+	public void setTuNgayGDNV(String tuNgayGDNV) {
+		this.tuNgayGDNV = tuNgayGDNV;
+	}
+	/**
+	 * @return the denNgayGDNV
+	 */
+	public String getDenNgayGDNV() {
+		return denNgayGDNV;
+	}
+	/**
+	 * @param denNgayGDNV the denNgayGDNV to set
+	 */
+	public void setDenNgayGDNV(String denNgayGDNV) {
+		this.denNgayGDNV = denNgayGDNV;
+	}
+	/**
+	 * @return the tuNgaySKNV
+	 */
+	public String getTuNgaySKNV() {
+		return tuNgaySKNV;
+	}
+	/**
+	 * @param tuNgaySKNV the tuNgaySKNV to set
+	 */
+	public void setTuNgaySKNV(String tuNgaySKNV) {
+		this.tuNgaySKNV = tuNgaySKNV;
+	}
+	/**
+	 * @return the denNgaySKNV
+	 */
+	public String getDenNgaySKNV() {
+		return denNgaySKNV;
+	}
+	/**
+	 * @param denNgaySKNV the denNgaySKNV to set
+	 */
+	public void setDenNgaySKNV(String denNgaySKNV) {
+		this.denNgaySKNV = denNgaySKNV;
+	}
+	/**
+	 * @return the listSuKien
+	 */
+	public ArrayList<SuKien> getListSuKien() {
+		return listSuKien;
+	}
+	/**
+	 * @param listSuKien the listSuKien to set
+	 */
+	public void setListSuKien(ArrayList<SuKien> listSuKien) {
+		this.listSuKien = listSuKien;
+	}
 	
-	
+	@Override
+	public void reset(ActionMapping mapping, HttpServletRequest request) {
+		// TODO Auto-generated method stub
+		try {
+			request.setCharacterEncoding("UTF-8");
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 	
 	
 }

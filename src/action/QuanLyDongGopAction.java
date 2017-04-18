@@ -30,6 +30,10 @@ public class QuanLyDongGopAction extends Action{
 	public ActionForward execute(ActionMapping mapping, ActionForm form,
 			HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
+		response.setContentType("text/html; charset=UTF-8");
+		request.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");
+		
 		QuanLyDongGopForm quanLyDongGopForm = (QuanLyDongGopForm) form;
 		
 		ArrayList<SuKienDongGop> listSuKienDongGop = null;

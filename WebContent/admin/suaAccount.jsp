@@ -23,7 +23,9 @@
 <link href="../assets/css/dataTables.bootstrap.css" rel="stylesheet">
 <link href="../assets/css/dataTables.bootstrap.min.css" rel="stylesheet">
 <!-- Graph CSS -->
-<link href="../assets/css/font-awesome.css" rel="stylesheet"> 
+<link href="../assets/css/font-awesome.css" rel="stylesheet">
+<!-- lined-icons -->
+<link rel="stylesheet" href="../assets/css/icon-font.min.css" type='text/css' /> 
 <!-- jQuery -->
 <script src="../assets/js/jquery-2.1.4.min.js"></script>
 <script src="../assets/js/jquery.min.js"></script>
@@ -48,21 +50,21 @@
 <div class="left-content">
 	   <div class="mother-grid-inner">
             <!--header start here-->
-			<jsp:include page="header.jsp" />
+			<jsp:include page="header.html" flush="true"/>
 			<!--heder end here-->
 <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="admin.jsp">Trang Chủ</a><i class="fa fa-angle-right"></i>Tài Khoản</li>
+                <li class="breadcrumb-item"><a href="${pageContext.request.contextPath}/admin/dashboard.html">Trang Chủ</a><i class="fa fa-angle-right"></i>Tài Khoản</li>
             </ol>
 <div class="agile-grids">	
 				<!-- tables -->
 				
 				<div class="row clearfix">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 w3-agile-chat">
                     <h3>Sửa Tài Khoản: 
 				    	<bean:write name="accountForm" property="ten"/>
 				    </h3>
 				    <br>
-					<html:form action="/admin/suaTK" method="post">
+					<html:form action="/admin/suaTK" method="post" acceptCharset="UTF-8">
 				        <div class="row form-group">
 				            <label class="col-lg-2">User Name</label>
 				            <div class="col-lg-3">
@@ -93,19 +95,6 @@
 				            	<html:radio property="phanQuyen" value="1" style="margin-right: 10px;">Quản Trị Viên</html:radio>
 				            	<html:radio property="phanQuyen" value="0" style="margin: 0px 10px 0px 30px;">Thành Viên</html:radio>
 				            </div>
-				        </div>
-				        <div class="row form-group">
-				            <label class="col-lg-2">Hình Đại Diện</label>
-				            <table>
-				            	<tr>
-				            		<td align="right">
-            							File Name
-							      	</td>
-							      	<td align="left">
-							            <html:file property="theFile"/> 
-							    	</td>
-				            	</tr>
-				            </table>
 				        </div>
 				        <div class="row form-group">
 				            <div class="col-lg-3 col-lg-offset-2">

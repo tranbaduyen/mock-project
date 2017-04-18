@@ -6,7 +6,40 @@ Configuration 1.3//EN" "http://struts.apache.org/dtds/struts-config_1_3.dtd">
 		<form-bean name="quanLyAccountForm" type="form.QuanLyAccountForm" />
 		<form-bean name="accountForm" type="form.AccountForm" />
 		<form-bean name="quanLyDongGopForm" type="form.QuanLyDongGopForm" />
+		<form-bean name="quanLyBinhLuanForm" type="form.QuanLyBinhLuanForm" />
 		<form-bean name="quanLyDashboardForm" type="form.QuanLyDashboardForm" />
+		<form-bean name="baiDongGopForm" type="form.BaiDongGopForm" />
+		<form-bean name="binhLuanForm" type="form.BinhLuanForm" />
+		<form-bean name="thongKeForm" type="form.ThongKeForm" />
+		<form-bean name="headerForm" type="form.HeaderForm" />
+		<form-bean name="thoiKyForm" type="form.ThoiKyForm" />
+		<form-bean name="danhSachThoiKyForm" type="form.DanhSachThoiKyForm" />
+		<form-bean name="giaiDoanForm" type="form.GiaiDoanForm" />
+		<form-bean name="danhSachGiaiDoanForm" type="form.DanhSachGiaiDoanForm" />
+		
+		
+		
+		<form-bean name="hienThiGiaiDoanForm" type="form.HienThiGiaiDoanForm" />
+		<form-bean name="nhanVatSuKienForm" type="form.NhanVatSuKienForm" />
+		<form-bean name="chiTietNhanVatSuKienForm" type="form.ChiTietNhanVatSuKienForm" />
+		<form-bean name="loginForm" type="form.LoginForm" />
+		<form-bean name="dangKyForm" type="form.DangKyForm" />	
+		<form-bean name="indexForm" type="form.IndexForm" />
+		<form-bean name="ajaxNhanVatSuKienForm" type="form.AjaxNhanVatSuKienForm" />
+		<form-bean name="ajaxGuiBinhLuanForm" type="form.AjaxGuiBinhLuanForm" />
+		<form-bean name="ajaxShowBinhLuanForm" type="form.AjaxShowBinhLuanFrom" />
+		<form-bean name="ajaxDanhGiaForm" type="form.AjaxDanhGiaFrom" />
+		<form-bean name="ajaxShowNVSKForm" type="form.AjaxShowNVSKForm" />
+		
+		
+		
+	
+		<form-bean name="baiDangForm" type="form.BaiDangForm" />
+		<form-bean name="hienThiGiaiDoanForm" type="form.HienThiGiaiDoanForm" />
+		<form-bean name="hienThiThoiKiForm" type="form.HienThiThoiKiForm"></form-bean>
+		<form-bean name="danhSachTimKiemForm" type="form.DanhSachTimKiemForm"></form-bean>
+		<form-bean name="timKiemThongTinForm" type="form.TimKiemThongTinForm"></form-bean>
+		
 	</form-beans>
 	<!-- Global Exceptions -->
 	<global-exceptions>
@@ -17,10 +50,16 @@ Configuration 1.3//EN" "http://struts.apache.org/dtds/struts-config_1_3.dtd">
 		
 	</global-forwards>
 	<action-mappings>
+		<action  input="/admin/header.jsp" name="headerForm"
+			path="/admin/header" scope="request" type="action.ShowHeaderAction">
+			<forward name="showHeader" path="/admin/header.jsp" />
+		</action>
+		
 		<action  input="/admin/admin.jsp" name="quanLyDashboardForm"
 			path="/admin/dashboard" scope="request" type="action.QuanLyDashboardAction">
 			<forward name="qlDashboard" path="/admin/admin.jsp" />
 		</action>
+		
 		<action  input="/admin/quanLyTaiKhoan.jsp" name="quanLyAccountForm"
 			path="/admin/quan-ly-tai-khoan" scope="request" type="action.QuanLyAccountAction">
 			<forward name="dsAccount" path="/admin/quanLyTaiKhoan.jsp" />
@@ -28,18 +67,199 @@ Configuration 1.3//EN" "http://struts.apache.org/dtds/struts-config_1_3.dtd">
 		<action input="/suaAccount.jsp" name="accountForm"
 			path="/admin/suaTK" scope="request" type="action.SuaAccountAction">
 			<forward name="suaTK" path="/admin/suaAccount.jsp" />
-			<forward name="suaTKxong" path="/admin/quan-ly-tai-khoan.do"  />
+			<forward name="suaTKxong" path="/admin/quan-ly-tai-khoan.html"  />
 		</action>
 		<action input="/admin/quanLyTaiKhoan.jsp" name="accountForm"
 			path="/admin/xoaTK" scope="request" type="action.XoaAccountAction">
 			<forward name="xoaTK" path="/admin/xoaAccount.jsp" />
-			<forward name="xoaTKxong" path="/admin/quan-ly-tai-khoan.do" />
+			<forward name="xoaTKxong" path="/admin/quan-ly-tai-khoan.html" />
 		</action>
 		
 		<action  input="/admin/quanlydonggop/quanLyDongGop.jsp" name="quanLyDongGopForm"
 			path="/admin/quanlydonggop/quan-ly-dong-gop" scope="request" type="action.QuanLyDongGopAction">
 			<forward name="dsDongGop" path="/admin/quanlydonggop/quanLyDongGop.jsp" />
 		</action>
+		<action input="/admin/quanlydonggop/chitiet_sukien.jsp" name="baiDongGopForm"
+			path="/admin/quanlydonggop/duyetSK" scope="request" type="action.DuyetSuKienDongGopAction">
+			<forward name="duyetSK" path="/admin/quanlydonggop/chitiet_sukien.jsp" />
+			<forward name="duyetSKxong" path="/admin/quanlydonggop/quan-ly-dong-gop.html"  />
+		</action>
+		<action input="/admin/quanlydonggop/chitiet_nhanvat.jsp" name="baiDongGopForm"
+			path="/admin/quanlydonggop/duyetNV" scope="request" type="action.DuyetNhanVatDongGopAction">
+			<forward name="duyetNV" path="/admin/quanlydonggop/chitiet_nhanvat.jsp" />
+			<forward name="duyetNVxong" path="/admin/quanlydonggop/quan-ly-dong-gop.html"  />
+		</action>
+		
+		<action  input="/admin/quanlybinhluan/quanLyBinhLuan.jsp" name="quanLyBinhLuanForm"
+			path="/admin/quanlybinhluan/quan-ly-binh-luan" scope="request" type="action.QuanLyBinhLuanAction">
+			<forward name="dsBinhLuan" path="/admin/quanlybinhluan/quanLyBinhLuan.jsp" />
+		</action>
+		<action input="/admin/quanlybinhluan/chitiet_binhluan.jsp" name="binhLuanForm"
+			path="/admin/quanlybinhluan/duyetBL" scope="request" type="action.DuyetBinhLuanAction">
+			<forward name="duyetBL" path="/admin/quanlybinhluan/chitiet_binhluan.jsp" />
+			<forward name="duyetBLxong" path="/admin/quanlybinhluan/quan-ly-binh-luan.html"  />
+		</action>
+		
+		<action  input="/admin/quanlybaiviet/danhSachThoiKy.jsp" name="danhSachThoiKyForm"
+			path="/admin/quanlybaiviet/danh-sach-thoi-ky" scope="request" type="action.DanhSachThoiKyAction">
+			<forward name="dsThoiKy" path="/admin/quanlybaiviet/danhSachThoiKy.jsp" />
+		</action>
+		<action input="/admin/quanlybaiviet/suaThoiKy.jsp" name="thoiKyForm"
+			path="/admin/quanlybaiviet/suaTK" scope="request" type="action.SuaThoiKyAction">
+			<forward name="suaTK" path="/admin/quanlybaiviet/suaThoiKy.jsp" />
+			<forward name="suaTKxong" path="/admin/quanlybaiviet/danh-sach-thoi-ky.html"  />
+		</action>
+		
+		<action  input="/admin/quanlybaiviet/danhSachGiaiDoan.jsp" name="danhSachGiaiDoanForm"
+			path="/admin/quanlybaiviet/danh-sach-giai-doan" scope="request" type="action.DanhSachGiaiDoanAction">
+			<forward name="dsGiaiDoan" path="/admin/quanlybaiviet/danhSachGiaiDoan.jsp" />
+		</action>
+		<action input="/admin/quanlybaiviet/themGiaiDoan.jsp" name="giaiDoanForm"
+			path="/admin/quanlybaiviet/them-giai-doan" scope="request" type="action.ThemGiaiDoanAction" validate="true">
+			<forward name="themGD" path="/admin/quanlybaiviet/themGD" />
+			<forward name="themGDxong" path="/admin/quanlybaiviet/danh-sach-giai-doan.html"/>
+		</action>
+		<action input="/admin/quanlybaiviet/suaGiaiDoan.jsp" name="giaiDoanForm"
+			path="/admin/quanlybaiviet/suaGD" scope="request" type="action.SuaGiaiDoanAction">
+			<forward name="suaGD" path="/admin/quanlybaiviet/suaGiaiDoan.jsp" />
+			<forward name="suaGDxong" path="/admin/quanlybaiviet/danh-sach-giai-doan.html"  />
+		</action>
+		
+		<action  input="/admin/thongke/thongke.jsp" name="thongKeForm"
+			path="/admin/thongke/thong-ke" scope="request" type="action.ThongKeAction">
+			<forward name="dsThongKe" path="/admin/thongke/thongke.jsp" />
+		</action>
+		
+		
+		
+		
+		
+		<action input="/thoiKy.jsp"
+		    path="/thoi-ky" 
+			type="action.HienThiGiaiDoanAction" 
+			name="hienThiGiaiDoanForm" 
+			scope="request" >
+	 <forward name="success" path="/thoiKy.jsp"/>
+	</action>
+
+	<action input="/index.jsp"
+		    path="/index" 
+			type="action.IndexAction" 
+			name="indexForm" 
+			scope="request" >
+	 <forward name="success" path="/index.jsp"/>
+	</action>
+	
+	
+	
+	<action input="/nhanVatSuKien.jsp"
+		    path="/nhan-vat-su-kien" 
+			type="action.NhanVatSuKienAction" 
+			name="nhanVatSuKienForm" 
+			scope="request" >
+	 <forward name="success" path="/nhanVatSuKien.jsp"/>
+	</action>
+	
+	<action input="/chiTetNhanVatSuKien.jsp"
+		    path="/chi-tet-nhan-vat-su-kien" 
+			type="action.ChiTietNhanVatSuKienAction" 
+			name="chiTietNhanVatSuKienForm" 
+			scope="request" >
+	 <forward name="success" path="/chiTetNhanVatSuKien.jsp"/>
+	</action>
+	
+
+
+	<action input="/nhanVatSuKien.jsp"
+		    path="/show-list-nv-sk" 
+			type="action.AjaxNhanVatSuKienAction" 
+			name="ajaxNhanVatSuKienForm" >
+	</action>
+	
+	<action input="/chiTietNhanVatSuKien.jsp"
+		    path="/gui-binh-luan" 
+			type="action.AjaxGuiBinhLuanAction" 
+			name="ajaxGuiBinhLuanForm" >
+	</action>
+	
+		<action input="/chiTietNhanVatSuKien.jsp"
+		    path="/show-binh-luan" 
+			type="action.AjaxShowBinhLuanAction" 
+			name="ajaxShowBinhLuanForm" >
+	</action>
+	
+	<action input="/chiTietNhanVatSuKien.jsp"
+		    path="/danh-gia" 
+			type="action.AjaxDanhGiaAction" 
+			name="ajaxDanhGiaForm" >
+	</action>
+
+		<action input="/nhanVatSuKien.jsp"
+		    path="/show-nvsk" 
+			type="action.AjaxShowNVSKAction" 
+			name="ajaxShowNVSKForm" >
+	</action>
+	
+	
+	
+	
+	<action input="/Login.jsp"
+		    path="/login" 
+			type="action.LoginAction" 
+			name="loginForm" 
+			scope="request" >
+	 <forward name="success" path="/index.jsp" redirect="true"/>
+     <forward name="failure" path="/dangNhap.jsp" />
+	</action>
+	
+		<action input="/header.jsp"
+		    path="/header" 
+			type="action.HeaderAction" 
+			name="headerForm" 
+			scope="request" >
+	 <forward name="success" path="/header.jsp"/> 
+	</action>
+
+	<action
+		    path="/logout" 
+			type="action.LogoutAction" 
+			scope="request" >
+	 <forward name="success" path="/index.html" redirect="true"/>
+	</action>
+	
+	
+	<action input="/dangKy.jsp"
+		    path="/register" 
+			type="action.DangKyAction" 
+			name="dangKyForm" 
+			scope="request" >
+	 <forward name="success" path="/welcome.jsp" redirect="true"/>
+     <forward name="failure" path="/dangKy.jsp" />
+	</action>
+	
+		
+		
+		
+		
+		
+		<action input="/baiDang.jsp" name="baiDangForm"
+			path="/bai-dang" scope="request" type="action.BaiDangAction" validate="true">
+			<forward name="baiDang" path="/baiDang.jsp" />
+			<forward name="success" path="/themXong.jsp" />
+			<forward name="error" path="/erroes.jsp" />
+		</action>
+		
+	<action
+			path="/timKiemThongTin" 
+			type="action.TimKiemThongTinAction"
+			name="timKiemThongTinForm">
+			<forward name="failure" path="/index.html" />
+			<forward name="success" path="/danhSachTimKiem.jsp" redirect="true"></forward>
+			<forward name="timKiemNull" path="/timKiemNull.jsp"></forward>
+	</action>
+		
+		
+		
 	</action-mappings>
 	<message-resources parameter="action.ApplicationResources" />
 	

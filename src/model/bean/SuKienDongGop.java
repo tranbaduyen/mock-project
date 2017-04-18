@@ -17,8 +17,15 @@ public class SuKienDongGop {
 	private String nguon;
 	private int pheDuyet;
 	
+	private String hinhDaiDien;
 	
 	
+	public String getHinhDaiDien() {
+		return hinhDaiDien;
+	}
+	public void setHinhDaiDien(String hinhDaiDien) {
+		this.hinhDaiDien = hinhDaiDien;
+	}
 	/**
 	 * @return the ten
 	 */

@@ -3,7 +3,12 @@
  */
 package form;
 
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.apache.struts.action.ActionMapping;
 
 import model.bean.Account;
 import model.bean.NhanVatDongGop;
@@ -121,6 +126,15 @@ public class QuanLyDongGopForm extends AccountForm{
 		this.listNhanVatDongGop = listNhanVatDongGop;
 	}
 	
-	
+	@Override
+	public void reset(ActionMapping mapping, HttpServletRequest request) {
+		// TODO Auto-generated method stub
+		try {
+			request.setCharacterEncoding("UTF-8");
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 
 }

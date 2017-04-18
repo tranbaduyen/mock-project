@@ -3,7 +3,15 @@
  */
 package form;
 
+import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
+
+import javax.servlet.http.HttpServletRequest;
+
+import model.bean.LuotXemQui;
+
 import org.apache.struts.action.ActionForm;
+import org.apache.struts.action.ActionMapping;
 
 /**
  * @author HCD-Fresher161
@@ -14,6 +22,23 @@ public class QuanLyDashboardForm extends ActionForm{
 	private int soLuongLuotXem;
 	private int soLuongBaiVietMoi;
 	private int soLuongBaiViet;
+	
+	private ArrayList<LuotXemQui> listLuotXemQui;
+	
+	
+	
+	/**
+	 * @return the listLuotXemQui
+	 */
+	public ArrayList<LuotXemQui> getListLuotXemQui() {
+		return listLuotXemQui;
+	}
+	/**
+	 * @param listLuotXemQui the listLuotXemQui to set
+	 */
+	public void setListLuotXemQui(ArrayList<LuotXemQui> listLuotXemQui) {
+		this.listLuotXemQui = listLuotXemQui;
+	}
 	/**
 	 * @return the soLuongNguoiDung
 	 */
@@ -63,5 +88,14 @@ public class QuanLyDashboardForm extends ActionForm{
 		this.soLuongBaiViet = soLuongBaiViet;
 	}
 	
-	
+	@Override
+	public void reset(ActionMapping mapping, HttpServletRequest request) {
+		// TODO Auto-generated method stub
+		try {
+			request.setCharacterEncoding("UTF-8");
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 }

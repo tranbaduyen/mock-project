@@ -36,7 +36,7 @@
 <div class="left-content">
 	   <div class="mother-grid-inner">
                <!--header start here-->
-				<jsp:include page="header.jsp" />
+				<jsp:include page="${pageContext.request.contextPath}/header.html" flush="true"/>
 <!--heder end here-->
 <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="admin.jsp">Trang Chủ</a><i class="fa fa-angle-right"></i><a href="quanLyDongGop.jsp">Hộp Thư</a><i class="fa fa-angle-right"></i>Đóng Góp</li>

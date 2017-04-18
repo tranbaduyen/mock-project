@@ -20,6 +20,8 @@
 <link href="../../assets/css/dataTables.bootstrap.min.css" rel="stylesheet">
 <!-- Graph CSS -->
 <link href="../../assets/css/font-awesome.css" rel="stylesheet"> 
+<!-- lined-icons -->
+<link rel="stylesheet" href="../../assets/css/icon-font.min.css" type='text/css' />
 <!-- jQuery -->
 <script src="../../assets/js/jquery-2.1.4.min.js"></script>
 <script src="../../assets/js/jquery.min.js"></script>
@@ -44,7 +46,7 @@
 <div class="left-content">
 	   <div class="mother-grid-inner">
        		<!--header start here-->
-				<jsp:include page="/admin/header.jsp" />
+				<jsp:include page="../header.html" flush="true"/>
 			<!--heder end here-->
 	<ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="/Mock_Project_DAV/admin/admin.jsp">Trang Chủ</a><i class="fa fa-angle-right"></i>Quản Lý Đóng Góp</li>
@@ -57,148 +59,17 @@
 		<ul class="nav tabs">
 		<bean:define id="soLuongSK" name="quanLyDongGopForm" property="soLuongSuKienChoDuyet"></bean:define>
 		<bean:define id="soLuongNV" name="quanLyDongGopForm" property="soLuongNhanVatChoDuyet"></bean:define>
-          <li class="active"><a href="#tab1" data-toggle="tab" aria-expanded="true"><i class="fa fa-history"></i>Giai Đoạn Lịch Sử <span>3</span><div class="clearfix"></div></a></li>
-          <li class=""><a href="#tab2" data-toggle="tab" aria-expanded="false"><i class="fa fa-bookmark"></i>Sự Kiện Lịch Sử<span><bean:write name="soLuongSK" /></span><div class="clearfix"></div></a></li>
+          <li class="active"><a href="#tab2" data-toggle="tab" aria-expanded="true"><i class="fa fa-bookmark"></i>Sự Kiện Lịch Sử<span><bean:write name="soLuongSK" /></span><div class="clearfix"></div></a></li>
           <li class=""><a href="#tab3" data-toggle="tab" aria-expanded="false"><i class="fa fa-user"></i>Nhân Vật Lịch Sử<span><bean:write name="soLuongNV" /></span><div class="clearfix"></div></a></li> 
-          <li class=""><a href="#tab4" data-toggle="tab" aria-expanded="false"><i class="fa fa-map-marker"></i>Địa Danh Lịch Sử <span>2</span><div class="clearfix"></div></a></li>  
-          <li class=""><a href="#tab5" data-toggle="tab" aria-expanded="false"><i class="fa fa-pencil-square-o"></i>Câu Chuyện<span>3</span><div class="clearfix"></div></a></li>                              
+          <li class=""><a href="#tab4" data-toggle="tab" aria-expanded="false"><i class="fa fa-map-marker"></i>Địa Danh Lịch Sử <span>2</span><div class="clearfix"></div></a></li>                              
 		</ul>
 	</nav>
 		
 </div>
 <!-- tab content -->
 <div class="col-md-9 tab-content tab-content-in w3">
-<div class="tab-pane text-style active" id="tab1">
-  <div class="inbox-right">
-         	
-            <div class="mailbox-content">
-               <div class="mail-toolbar">
-			   
-               </div class="body">
-                <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
-                    <thead>
-						<tr>
-							<th>Avatar</th>
-							<th>Tên</th>
-							<th>Trạng Thái</th>
-							<th>Thời Gian</th>
-							<th>Thao Tác</th>
-						</tr>
-					</thead>
-					<tbody>
-                        <tr class="table-row">
-                            <td class="table-img">
-                               <img src="../../assets/images/in.jpg" alt="">
-                            </td>
-                            <td class="table-text">
-                            	<h6> Trần Bá Duyên</h6>
-                                <p>Đã đóng góp 1 bài viết</p>
-                            </td>
-                            <td>
-                            	<span class="fam">Đã duyệt</span>
-                            </td>
-                            <td class="march">
-                               2 giờ trước
-                            </td>
-                          
-                             <td>
-								<a  href="chitiet_giaidoan.jsp">
-									<i class="glyphicon glyphicon-search"></i>Xem  
-								</a>
-                            </td>
-                        </tr>
-                       
-                        <tr class="table-row">
-                            <td class="table-img">
-                               <img src="../../assets/images/in4.jpg" alt="">
-                            </td>
-                            <td class="table-text">
-                            	<h6> Phan Thị Minh Tâm</h6>
-                                <p>Đã đóng góp 1 bài viết</p>
-                            </td>
-                            <td>
-                            	<span class="ur">Đang chờ</span>
-                            </td>
-                            <td class="march">
-                                1 ngày trước
-                            </td>
-                          
-                             <td>
-                               <a  href="chitiet_giaidoan.jsp">
-									<i class="glyphicon glyphicon-search"></i>Xem  
-								</a>
-                            </td>
-                        </tr>
-                        <tr class="table-row">
-                            <td class="table-img">
-                               <img src="../../assets/images/in.jpg" alt="">
-                            </td>
-                            <td class="table-text">
-                            	<h6> Trần Bá Duyên</h6>
-                                <p>Đã đóng góp 1 bài viết</p>
-                            </td>
-                            <td>
-                            	<span class="ur">Đang chờ</span>
-                            </td>
-                            <td class="march">
-                               2 ngày trước
-                            </td>
-                          
-                             <td>
-								<a  href="chitiet_giaidoan.jsp">
-									<i class="glyphicon glyphicon-search"></i>Xem  
-								</a>
-                            </td>
-                        </tr>
-                        <tr class="table-row">
-                            <td class="table-img">
-                               <img src="../../assets/images/in.jpg" alt="">
-                            </td>
-                            <td class="table-text">
-                            	<h6> Trần Bá Duyên</h6>
-                                <p>Đã đóng góp 1 bài viết</p>
-                            </td>
-                            <td>
-                            	<span class="fam">Đã duyệt</span>
-                            </td>
-                            <td class="march">
-                               2 ngày trước
-                            </td>
-                          
-                             <td>
-								<a  href="chitiet_giaidoan.jsp">
-									<i class="glyphicon glyphicon-search"></i>Xem  
-								</a>
-                            </td>
-                        </tr>
-                        <tr class="table-row">
-                            <td class="table-img">
-                               <img src="../../assets/images/in.jpg" alt="">
-                            </td>
-                            <td class="table-text">
-                            	<h6> Trần Bá Duyên</h6>
-                                <p>Đã đóng góp 1 bài viết</p>
-                            </td>
-                            <td>
-                            	<span class="ur">Đang chờ</span>
-                            </td>
-                            <td class="march">
-                               2 ngày trước
-                            </td>
-                          
-                             <td>
-								<a  href="chitiet_giaidoan.jsp">
-									<i class="glyphicon glyphicon-search"></i>Xem  
-								</a>
-                            </td>
-                        </tr>
-						
-                    </tbody>
-                </table>
-               </div>
-            </div>
-</div>
-<div class="tab-pane text-style" id="tab2">
+
+<div class="tab-pane text-style active" id="tab2">
 	<div class="inbox-right">
          	
             <div class="mailbox-content">
@@ -238,9 +109,10 @@
 							                	<bean:write name="skDongGop" property="ngayDang"/>
 							                </td>
 							                <td>
-							                	<a href="#">
-													<i class="glyphicon glyphicon-search"></i>Xem  
-												</a>
+							                	<bean:define id="maBDSK" name="skDongGop" property="maBDSK"></bean:define>
+							                	<html:link action="/admin/quanlydonggop/duyetSK?maBDSK=${maBDSK}">
+							                		<span class="glyphicon glyphicon-edit"> Xem</span>
+							                	</html:link>
 							                </td>
 						           		 </tr>
 						</logic:iterate> 
@@ -290,9 +162,10 @@
 							                	<bean:write name="nvDongGop" property="ngayDang"/>
 							                </td>
 							                <td>
-							                	<a href="#">
-													<i class="glyphicon glyphicon-search"></i>Xem  
-												</a>
+							                	<bean:define id="maBDNV" name="nvDongGop" property="maBDNV"></bean:define>
+							                	<html:link action="/admin/quanlydonggop/duyetNV?maBDNV=${maBDNV}">
+							                		<span class="glyphicon glyphicon-edit"> Xem</span>
+							                	</html:link>
 							                </td>
 						           		 </tr>
 						</logic:iterate> 
@@ -394,95 +267,7 @@
                </div>
             </div>
   </div>
-  <div class="tab-pane text-style" id="tab5">
-  	<div class="inbox-right">
-         	
-            <div class="mailbox-content">
-               <div class="mail-toolbar clearfix">
-
-               </div>
-                <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
-                    <thead>
-						<tr>
-							<th>Avatar</th>
-							<th>Tên</th>
-							<th>Trạng Thái</th>
-							<th>Thời Gian</th>
-							<th>Thao Tác</th>
-						</tr>
-					</thead>
-					<tbody>
-                        <tr class="table-row">
-                            <td class="table-img">
-                               <img src="../../assets/images/in.jpg" alt="">
-                            </td>
-                            <td class="table-text">
-                            	<h6> Nguyễn Văn A</h6>
-                                <p>Đã đóng góp 1 bài viết</p>
-                            </td>
-                            <td>
-                            	<span class="ur">Đang chờ</span>
-                            </td>
-                            <td class="march">
-                               1 giờ trước
-                            </td>
-                          
-                             <td>
-								<a  href="chitiet_cauchuyen.jsp">
-									<i class="glyphicon glyphicon-search"></i>Xem  
-								</a>
-                            </td>
-                        </tr>
-                       
-                        <tr class="table-row">
-                            <td class="table-img">
-                               <img src="../../assets/images/in4.jpg" alt="">
-                            </td>
-                            <td class="table-text">
-                            	<h6> Phan Thị Minh Tâm</h6>
-                                <p>Đã đóng góp 1 bài viết</p>
-                            </td>
-                            <td>
-                            	<span class="ur">Đang chờ</span>
-                            </td>
-                            <td class="march">
-                                1 ngày trước
-                            </td>
-                          
-                             <td>
-                               <a  href="chitiet_cauchuyen.jsp">
-									<i class="glyphicon glyphicon-search"></i>Xem  
-								</a>
-                            </td>
-                        </tr>
-                        <tr class="table-row">
-                            <td class="table-img">
-                               <img src="../../assets/images/in.jpg" alt="">
-                            </td>
-                            <td class="table-text">
-                            	<h6> Trần Bá Duyên</h6>
-                                <p>Đã đóng góp 1 bài viết</p>
-                            </td>
-                            <td>
-                            	<span class="ur">Đang chờ</span>
-                            </td>
-                            <td class="march">
-                               2 ngày trước
-                            </td>
-                          
-                             <td>
-								<a  href="chitiet_cauchuyen.jsp">
-									<i class="glyphicon glyphicon-search"></i>Xem  
-								</a>
-                            </td>
-                        </tr>
-                        
-						
-                    </tbody>
-                </table>
-               </div>
-            </div>
-</div>
+  
 </div>
 <div class="clearfix"> </div>
    </div>

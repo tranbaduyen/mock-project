@@ -1,0 +1,315 @@
+#game{
+	margin: 0 auto;
+	   /* background: rgba(0, 0, 0, 0.5);*/
+	   font-family: Arial;
+	   position: relative;
+	   z-index: 1000;
+	}
+.char {
+    float: left;
+    color: #3498db;
+    font-size: 20px;
+    line-height: 35px;
+    margin-left: 2px;
+    margin-top: 9px;
+    background-color:#FFFFFF;
+    border-radius: 50%;
+    height: 32px;
+    width: 32px;
+}
+#page {
+    color:red;
+    margin-bottom:20px;
+}
+#question-number {
+    background-color: #632601;
+    color: #e9ddb3;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    line-height: 30px;
+    margin-right: 10px;
+    padding: 5px 10px;
+}
+#question {
+    margin-bottom:20px;
+    color: #FFFFFF;
+    border-radius: 4em 0px 4em 0px;
+    -moz-border-radius: 4em 0px 4em 0px;
+    -webkit-border-radius: 4em 0px 4em 0px;
+    border: 0px solid #000000;
+     padding: 30px;
+    height:100px;
+    width:100%;
+    text-align: center;
+    font-weight: normal;
+    background-color: rgba(0, 0, 0, 0.5);
+    text-transform: capitalize;
+   
+}
+#question:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+#point {
+    display: block;
+    font-size: 20px;
+    font-weight:bold;
+}
+#a, #b, #c, #d {
+    font-weight: bold;
+    text-transform: uppercase;
+}
+#win {
+    display:none;
+}
+#each-question {
+    max-width:800px;
+    text-align: center;
+    margin: 0 auto;
+}
+#characterBox {
+    text-align: center;
+    margin: 10px;
+}
+.container {
+    padding-top: 30px;
+}
+.box {
+    display: inline-block;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #FFFFFF;
+    border-radius: 2em 2em;
+    line-height: 50px;
+    height:50px;
+    width:100%;
+    overflow: hidden;
+  
+}
+.boxWrong {
+    display: inline-block;
+    background-color : #3498db;
+    color: rgba(253, 254, 255, 0.18);
+    border-radius: 2em 2em;
+    line-height: 50px;
+    height:50px;
+    width:100%;
+    pointer-events:none;
+    overflow: hidden;
+}
+.answerBox {
+    display: inline-block;
+    background-color : #3498db;
+    color: #FFFFFF;
+    border-radius: 2em 2em;
+    line-height: 50px;
+    height:50px;
+    width:100%;
+     overflow: hidden;
+}
+td {
+    padding: 2px 2px;
+    width: 500px;
+}
+#footer {
+    margin-top: 30px;
+}
+.character {
+    position: absolute;
+    display:block;
+    line-height: 30px;
+    height:30px;
+    width:30px;
+    font-weight: bold;
+    z-index:-1;
+}
+.box:hover {
+    background-color: #2980b9;
+}
+#answer {
+    margin: 20px;
+}
+#submit-button {
+    float: right;
+}
+#sellector {
+}
+#button {
+    margin: 30px;
+}
+#next-question, #restart-game {
+    margin: 10px;
+    text-align: center;
+}
+#submit-answer {
+    float: left;
+    margin-top: 30px;
+}
+#withdraw-button {
+    float:right;
+    margin-top: 30px;
+    margin-left:10px;
+}
+#help5050-button {
+    float:right;
+    margin-top: 30px;
+    margin-left:10px;
+}
+#helpSurvey-button {
+    float:right;
+    margin-top: 30px;
+    margin-left:10px;
+}
+.rewardStep {
+    height: 40px;
+    width: 40px;
+    background-color: #632601;
+    color: #ffffff;
+    margin-top: 30px;
+    margin-left: 15px;
+    display: inline-block;
+    border-radius: 50%;
+}
+.specialRewardStep {
+    height: 40px;
+    width: 40px;
+    background-color: #632601;
+    color: #ffffff;
+    margin-top: 30px;
+    margin-left: 15px;
+    display: inline-block;
+    border-radius: 50%;
+}
+.rewardStep:hover {
+    background-color: #2980b9;
+    color: #ffffff;
+}
+.specialRewardStep:hover {
+    background-color: #3498db;
+    color: #ffffff;
+}
+.number {
+    position: absolute;
+    color: #FFFFFF;
+    font-size:30px;
+
+    margin: 0 12px;
+    z-index:2;
+}
+.specialNumber {
+    position: absolute;
+    color: yellow;
+    font-size:30px;
+   
+   
+    margin: 0 4px;
+    z-index:2;
+}
+#reward {
+    text-align: center;
+}
+#survey-region {
+    text-align: center;
+
+    margin: 0 15%;
+    margin-top: 30px;
+    
+    background-color: rgba(0, 0, 0, 0.5);
+}
+.surveyBoard {
+    text-align: left;
+    margin: 20px;
+}
+.percent {
+    width : 0.7%;
+    height : 28px;
+    background-color: #3498db;
+    display: inline-block;
+}
+.startPercent {
+    width : 2px;
+    height : 28px;
+    background-color: #000000;
+    display: inline-block;
+}
+.ABCD {
+    font-weight: bold;
+    height:28px;
+    line-height:28px;
+    margin-right: 20px;
+}
+.percentNumber {
+    font-weight: bold;
+    height : 28px;
+    display: inline-block;
+    color: #fff;
+    float: right;
+    margin-left: 20px;
+    margin-right:20px;
+}
+#chartA, #chartB, #chartC, #chartD {
+    height:30px;
+    line-height:30px;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-color: rgba(243, 249, 255, 0.55);
+}
+
+.btn-primary:hover {
+    color: #e9ddb3;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-color: rgba(243, 249, 255, 0.55);
+}
+
+.btn-success {
+    color: #fff;
+    background-color: rgba(0, 150, 136, 0.28);
+    border-color: rgba(0, 150, 136, 0.78);
+}
+
+.btn-success:hover {
+    color: #fff;
+    background-color: rgba(0, 150, 136, 0.5);
+    border-color: rgba(0, 150, 136, 0.78);
+}
+
+.btn-danger {
+    color: #fff;
+    background-color: rgba(217, 83, 79, 0.42);
+    border-color: rgba(212, 63, 58, 0.4);
+}
+
+.btn-danger:hover {
+    color: #fff;
+    background-color: rgba(217, 83, 79, 0.7);
+    border-color: rgba(212, 63, 58, 0.4);
+}
+
+.btn-info {
+    color: #fff;
+    background-color: rgba(99, 38, 1, 0.52);
+    border-color: rgba(255, 255, 255, 0.51);
+}
+
+.btn-info:hover {
+    color: #e9ddb3;
+    background-color: rgba(99, 38, 1, 0.8);
+    border-color: rgba(255, 255, 255, 0.51);
+}
+.btn-default {
+    color: rgb(10, 10, 10);
+    background-color: rgba(255, 255, 255, 0.58);
+    border-color: rgb(204, 204, 204);
+}
+
+.btn-default:hover {
+    color: rgb(10, 10, 10);
+    background-color: rgba(255, 255, 255, 0.8);
+    border-color: rgb(204, 204, 204);
+}
+
+.notice{
+	    margin: 0 12px;
+}

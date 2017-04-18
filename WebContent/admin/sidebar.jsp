@@ -16,18 +16,22 @@
 <div style="border-top: 1px ridge rgba(255, 255, 255, 0.15)"></div>
 <div class="menu">
 <ul id="menu">
-	<li><a href="/Mock_Project_DAV/admin/dashboard.do"><i class="fa fa-tachometer"></i> <span>Dashboard</span>
+	<li><a href="/Mock_Project_DAV/admin/dashboard.html"><i class="fa fa-tachometer"></i> <span>Dashboard</span>
 	<div class="clearfix"></div>
 	</a></li>
-	<li id="menu-academico"><a href="/Mock_Project_DAV/admin/quanlydonggop/quan-ly-dong-gop.do"><i
+	<li id="menu-academico"><a href="${pageContext.request.contextPath}/admin/quanlydonggop/quan-ly-dong-gop.html"><i
 		class="fa fa-envelope nav_icon"></i><span>Đóng Góp</span>
 	<div class="clearfix"></div>
 	</a></li>
-	<li id="menu-academico"><a href="thongKe.jsp"><i
+	<li id="menu-academico"><a href="${pageContext.request.contextPath}/admin/quanlybinhluan/quan-ly-binh-luan.html"><i
+		class="fa fa-comments-o nav_icon"></i><span>Bình Luận</span>
+	<div class="clearfix"></div>
+	</a></li>
+	<li id="menu-academico"><a href="${pageContext.request.contextPath}/admin/thongke/thong-ke.html"><i
 		class="fa fa-signal nav_icon"></i><span>Thống Kê</span>
 	<div class="clearfix"></div>
 	</a></li>
-	<li><a href="/Mock_Project_DAV/admin/quan-ly-tai-khoan.do"><i class="fa fa-users"
+	<li><a href="${pageContext.request.contextPath}/admin/quan-ly-tai-khoan.html"><i class="fa fa-users"
 		aria-hidden="true"></i><span>Tài Khoản</span>
 	<div class="clearfix"></div>
 	</a></li>
@@ -37,20 +41,19 @@
 	<div class="clearfix"></div>
 	</a>
 	<ul id="menu-academico-sub">
-		<li id="menu-academico-avaliacoes"><a href="icons.jsp">Giai
+		<li id="menu-academico-avaliacoes"><a href="${pageContext.request.contextPath}/admin/quanlybaiviet/danh-sach-thoi-ky.html">Thời Kỳ Lịch Sử</a></li>
+		<li id="menu-academico-avaliacoes"><a href="${pageContext.request.contextPath}/admin/quanlybaiviet/danh-sach-giai-doan.html">Giai
 		Đoạn Lịch Sử</a></li>
-		<li id="menu-academico-avaliacoes"><a href="typography.jsp">Sự
+		<li id="menu-academico-avaliacoes"><a href="${pageContext.request.contextPath}/admin/quanlybaiviet/danh-sach-su-kien.html">Sự
 		Kiện Lịch Sử</a></li>
-		<li id="menu-academico-avaliacoes"><a href="faq.jsp">Nhân Vật
+		<li id="menu-academico-avaliacoes"><a href="${pageContext.request.contextPath}/admin/quanlybaiviet/danh-sach-nhan-vat.html">Nhân Vật
 		Lịch Sử</a></li>
-		<li id="menu-academico-avaliacoes"><a href="chart.jsp">Địa
+		<li id="menu-academico-avaliacoes"><a href="${pageContext.request.contextPath}/admin/quanlybaiviet/danh-sach-dia-danh.html">Địa
 		Danh Lịch Sử</a></li>
-		<li id="menu-academico-avaliacoes"><a href="chart.jsp">Câu
-		Chuyện/Truyền Thuyết</a></li>
 	</ul>
 	</li>
 
-	<li><a href="banDo.jsp"><i class="fa fa-map-marker"
+	<li><a href="${pageContext.request.contextPath}/banDo.jsp"><i class="fa fa-map-marker"
 		aria-hidden="true"></i> <span>Bản Đồ</span>
 	<div class="clearfix"></div>
 	</a></li>

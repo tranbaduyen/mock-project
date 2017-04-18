@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@page import="model.bean.SuKien"%>
+<%@page import="java.util.ArrayList"%>
     <%@ taglib uri="http://struts.apache.org/tags-bean" prefix="bean"%>
 <%@ taglib uri="http://struts.apache.org/tags-html" prefix="html"%>
 <%@ taglib uri="http://struts.apache.org/tags-logic" prefix="logic"%>
@@ -13,20 +15,22 @@
 <meta name="keywords" content="" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!-- Bootstrap Core CSS -->
-<link href="../assets/css/bootstrap.min.css" rel='stylesheet' type='text/css' />
-<link href="../assets/css/bootstrap.css" rel="stylesheet">
+<link href="../../assets/css/bootstrap.min.css" rel='stylesheet' type='text/css' />
+<link href="../../assets/css/bootstrap.css" rel="stylesheet">
 <!-- Custom CSS -->
-<link href="../assets/css/style.css" rel='stylesheet' type='text/css' />
-<link rel="stylesheet" href="../assets/css/morris.css" type="text/css"/>
+<link href="../../assets/css/style.css" rel='stylesheet' type='text/css' />
+<link rel="stylesheet" href="../../assets/css/morris.css" type="text/css"/>
 <!-- Graph CSS -->
-<link href="../assets/css/font-awesome.css" rel="stylesheet"> 
+<link href="../../assets/css/font-awesome.css" rel="stylesheet"> 
+<!-- lined-icons -->
+<link rel="stylesheet" href="../../assets/css/icon-font.min.css" type='text/css' />
 <!-- jQuery -->
-<script src="../assets/js/jquery-2.1.4.min.js"></script>
-<script src="../assets/js/jquery.min.js"></script>
+<script src="../../assets/js/jquery-2.1.4.min.js"></script>
+<script src="../../assets/js/jquery.min.js"></script>
 <!-- //jQuery -->
 
 <!-- lined-icons -->
-<link rel="stylesheet" href="../assets/css/icon-font.min.css" type='text/css' />
+<link rel="stylesheet" href="../../assets/css/icon-font.min.css" type='text/css' />
 <!-- //lined-icons -->
 </head> 
 <body>
@@ -35,7 +39,7 @@
 <div class="left-content">
 	   <div class="mother-grid-inner">
                <!--header start here-->
-				<jsp:include page="/admin/header.jsp" />
+				<jsp:include page="../header.html" flush="true"/>
 				<!--heder end here-->
 <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="admin.jsp">Trang Chủ</a><i class="fa fa-angle-right"></i><a href="quanLyDongGop.jsp">Hộp Thư</a><i class="fa fa-angle-right"></i>Đóng Góp</li>
@@ -45,39 +49,43 @@
  		
  		<div class="validation-form">
  	<!---->
-  	    
-        <form>
+  	    	
+        <html:form action="/admin/quanlydonggop/duyetSK" method="post">
+        	<div class="col-md-12 form-group1 group-mail">
+              <label class="control-label">Mã Bài Đóng Góp</label>
+              <html:text property="maBDSK" styleClass="form-control" readonly="true"></html:text>
+            </div>
 			<div class="col-md-12 form-group2 group-mail">
               <label class="control-label">Thời Kỳ</label>
-				<select>
-					<option value="">Cổ Đại</option>
-					<option value="">Trung Đại</option>
-					<option value="">Cận Đại</option>
-					<option value="">Hiện Đại</option>
-				</select>
+				<html:select property="maThoiKi" styleClass="form-control" onchange="this.form.submit()" disabled="true">
+            		<html:optionsCollection name="baiDongGopForm" property="listThoiKi" label="tenThoiKi" value="maThoiKi"/>
+            	</html:select>
             </div>
 			<div class="col-md-12 form-group2 group-mail">
               <label class="control-label">Giai Đoạn</label>
-				<select>
-					<option value="">Xã Hội Nguyên Thủy</option>
-					<option value="">Nhà Nước Văn Lang</option>
-					<option value="">Nhà Nước Âu Lạc</option>
-					<option value="">Nhà Triệu</option>
-				</select>
+				<html:select property="maGiaiDoan" styleClass="form-control" onchange="this.form.submit()" disabled="true">
+            		<html:optionsCollection name="baiDongGopForm" property="listGiaiDoan" label="tenGiaiDoan" value="maGiaiDoan"/>
+            	</html:select>
+            </div>
+            <div class="col-md-12 form-group2 group-mail">
+              <label class="control-label">Phân Loại Sự Kiện</label>
+				<html:select property="maPhanLoai" styleClass="form-control" onchange="this.form.submit()" disabled="true">
+            		<html:optionsCollection name="baiDongGopForm" property="listPhanLoaiSuKien" label="tenPhanLoai" value="maPhanLoai"/>
+            	</html:select>
             </div>
          	<div class="vali-form">
 				<div class="col-md-6 form-group1 group-mail">
 				  <label class="control-label ">Năm Bắt Đầu</label>
-				  <input type="text" placeholder="Năm Bắt Đầu" required="">
+				  <html:text property="ngayBatDau" styleClass="form-control" readonly="true"></html:text>
 				</div>
 				 <div class="col-md-6 form-group1 group-mail">
 				  <label class="control-label ">Năm Kết Thúc</label>
-				  <input type="text" placeholder="Năm Kết Thúc" required="">
+				  <html:text property="ngayKetThuc" styleClass="form-control" readonly="true"></html:text>
 				</div>
             </div>
             <div class="col-md-12 form-group1 group-mail">
               <label class="control-label">Tên Sự Kiện</label>
-              <input type="text" placeholder="Tên sự kiện" required="">
+              <html:text property="tenSuKien" styleClass="form-control" readonly="true"></html:text>
             </div>
              <div class="clearfix"> </div>
             <div class="col-md-12 form-group1 group-mail">
@@ -88,23 +96,29 @@
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group1 group-mail">
                     <div class="card">
                         <div class="body" >
-                            <textarea id="ckeditor" placeholder="Nội dung">
-                                
-                            </textarea>
+                        	<html:textarea styleId="ckeditor"  property="noiDung"></html:textarea>
                         </div>
                     </div>
                 </div>
             </div>
             <!-- #END# CKEditor -->
+             <div class="col-md-12 form-group1 group-mail">
+              <label class="control-label">Nguồn</label>
+              <html:text property="nguon" styleClass="form-control" readonly="true"></html:text>
+            </div>
+            <div class="col-md-12 form-group1 group-mail">
+              <label class="control-label">Phê Duyệt</label>
+              	<html:radio property="pheDuyet" value="1" style="margin-right: 10px;">Đã Duyệt</html:radio>
+				<html:radio property="pheDuyet" value="0" style="margin: 0px 10px 0px 30px;">Đang Chờ</html:radio>
+            </div>
              <div class="clearfix"> </div>
 
             <div class="col-md-12 form-group">
-              <button type="submit" class="btn btn-primary">Duyệt</button>
-              <button type="submit" class="btn btn-default">Xóa</button>
+              <html:submit styleClass="btn btn-primary" property="submit" value="submit"></html:submit>
 			  <button type="submit" class="btn btn-primary" onclick="history.go(-1);">Quay Lại</button>
             </div>
           <div class="clearfix"> </div>
-        </form>
+        </html:form>
     
  	<!---->
  </div>
@@ -143,12 +157,12 @@
 		<!--/sidebar-menu-->
 				<jsp:include page="/admin/sidebar.jsp" />
 <!--js -->
-<script src="../assets/js/jquery.nicescroll.js"></script>
-<script src="../assets/js/scripts.js"></script>
-<script src="../assets/plugin/ckeditor/ckeditor.js"></script>
-<script src="../assets/js/editors.js"></script>
+<script src="../../assets/js/jquery.nicescroll.js"></script>
+<script src="../../assets/js/scripts.js"></script>
+<script src="../../assets/plugin/ckeditor/ckeditor.js"></script>
+<script src="../../assets/js/editors.js"></script>
 <!-- Bootstrap Core JavaScript -->
-   <script src="../assets/js/bootstrap.min.js"></script>
+   <script src="../../assets/js/bootstrap.min.js"></script>
    <!-- /Bootstrap Core JavaScript -->	    
 
 </body>

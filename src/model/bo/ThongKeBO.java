@@ -17,4 +17,5 @@ public class ThongKeBO {
 	public int getSoLuongBaiViet(){
 		return thongKeDAO.getSoLuongBaiViet();
 	}
+	
 }

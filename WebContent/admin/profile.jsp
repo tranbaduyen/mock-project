@@ -33,7 +33,7 @@
 <div class="left-content">
 	   <div class="mother-grid-inner">
               <!--header start here-->
-				<jsp:include page="header.jsp" />
+				<jsp:include page="header.html" flush="true"/>
 <!--heder end here-->
 		<ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="admin.jsp">Trang Chủ</a><i class="fa fa-angle-right"></i>Thông Tin Cá Nhân</li>

@@ -9,8 +9,9 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-import model.bean.NhanVatDongGop;
-import model.bean.SuKienDongGop;
+
+import model.bean.LuotXemQui;
+import model.bean.SuKien;
 
 /**
  * @author HCD-Fresher161
@@ -25,10 +26,12 @@ public class ThongKeDAO {
 	Statement stmt3=null;
 	Statement stmt4=null;
 	
-	private  int soLuongNguoiDung = 0;
-	private  int soLuongLuotXem = 0;
-	private  int soLuongBaiVietMoi = 0;
-	private  int soLuongBaiViet = 0;
+	private int soLuongNguoiDung = 0;
+	private int soLuongLuotXem = 0;
+	private int soLuongBaiVietMoi = 0;
+	private int soLuongBaiViet = 0;
+	
+	
 	
 	/**
 	 * @return the soLuongNguoiDung
@@ -244,6 +247,35 @@ public class ThongKeDAO {
 		this.soLuongBaiViet = soLuongBaiViet;
 	}
 	
-	
+	public ArrayList<LuotXemQui> getListLuotXemQui() {
+		connection = da.getConnect();
+		String sql = "SELECT SUM(NGAYHIENTAI) AS soLuongNgay,SUM(TUAN) AS soLuongTuan, " +
+				"SUM(THANG) AS soLuongThang,SUM(NAM) AS soLuongNam " +
+				"FROM DEMLUOTXEM " +
+				"where MASUKIEN IS NOT NULL ";
+		ResultSet rs = null;
+		try {
+			Statement stmt = connection.createStatement();
+			rs = stmt.executeQuery(sql);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		ArrayList<LuotXemQui> list = new ArrayList<LuotXemQui>();
+		LuotXemQui luotXemQui;
+		try {
+			while (rs.next()) {
+				luotXemQui = new LuotXemQui();
+				luotXemQui.setMocThoiGian(rs.getString("MocThoiGian"));
+				luotXemQui.setSoLuongSuKien(rs.getInt("SoLuongSuKien"));
+				luotXemQui.setSoLuongNhanVat(rs.getInt("SoLuongNhanVat"));
+				list.add(luotXemQui);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return list;
+
+	}
 	
 }
