@@ -31,7 +31,7 @@
 			      title:"Đại Học Duy Tân!"
 			    });
 		    
-		   
+		    var infowindow = new google.maps.InfoWindow();;
 		    
 		    <logic:iterate id="dd" name="danhSachDiaDanhGanForm" property="listDiaDanhGan">
 	    	
@@ -49,12 +49,16 @@
 		       var noidung='<div >'+
 		         '</br>Tên địa danh : '+'<bean:write name="dd" property="tenDiaDanh"/>'+
 		      	'</br>Nội dung : '+'<bean:write name="dd" property="noiDung"/>'+ '</div>';
-		        var infor_diadanh = new google.maps.InfoWindow({
-		            content: noidung
-		          });
-		        marker.addListener('click', function() {
-		        	infor_diadanh.open(map, marker);
-				});
+		        
+		        	google.maps.event.addListener(marker,'click', function() {
+		        		if(infowindow==true) infowindow.close();
+		        		infowindow=new google.maps.InfoWindow({content:noidung});
+			        	infowindow.open(map, marker);
+			        	alert('xxx : '+'<bean:write name="dd" property="tenDiaDanh"/>');
+			        	
+					});
+		        
+		        
 	    	</logic:iterate>
 	  }
 	</script>
