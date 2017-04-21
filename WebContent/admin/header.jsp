@@ -80,12 +80,7 @@
 											</li>
 										</ul>
 									</li>	
-									<li class="dropdown head-dpdn">
-										<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-tasks"></i><span class="badge blue1">0</span></a>
-										<ul class="dropdown-menu">
-											
-										</ul>
-									</li>	
+									
 									<div class="clearfix"> </div>
 								</ul>
 								<div class="clearfix"> </div>

@@ -517,9 +517,8 @@ public class SuKienDAO {
 			cs.setString(2, ngayBatDau);
 			cs.setString(3, ngayKetThuc);
 			cs.setString(4, noiDung);
-			cs.setInt(5, maGiaiDoan);
-			cs.setString(6, nguon);
-			
+			cs.setString(5, nguon);
+			cs.setInt(6, maGiaiDoan);
 			cs.executeUpdate();
 			
 			System.out.println(cs);

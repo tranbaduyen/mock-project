@@ -329,7 +329,8 @@ public class NhanVatDAO {
 			cs.setString(2, namSinh);
 			cs.setString(3, namMat);
 			cs.setString(4, noiDung);
-			cs.setString(5, nguon);
+			cs.setInt(5, maGiaiDoan);
+			cs.setString(6, nguon);
 			
 			cs.executeUpdate();
 			
