@@ -31,32 +31,37 @@
 			      title:"Đại Học Duy Tân!"
 			    });
 		    
-		    var infowindow = new google.maps.InfoWindow();;
+		    var infowindow = new google.maps.InfoWindow();
 		    
 		    <logic:iterate id="dd" name="danhSachDiaDanhGanForm" property="listDiaDanhGan">
 	    	
-			    var toado_diadanh = {lat: <bean:write name="dd" property="viDo"/>,
-	    				lng: <bean:write name="dd" property="kinhDo"/>};
-	
-		        var marker = new google.maps.Marker({
-		            position: toado_diadanh,
-		            map: map,
-		            title: '<bean:write name="dd" property="tenDiaDanh"/>'
-		        });
+		    <bean:define id="maDiaDanh" name="dd" property="maDiaDanh"></bean:define>
+		    <bean:define id="kinhDo" name="dd" property="kinhDo"></bean:define>
+			<bean:define id="viDo" name="dd" property="viDo"></bean:define>
+		    <bean:define id="tenDiaDanh" name="dd" property="tenDiaDanh"></bean:define>
+		    <bean:define id="hinhAnh" name="dd" property="hinhAnh"></bean:define>
+		    var toado_${maDiaDanh}_LatLng = {lat: ${viDo},
+    				lng: ${kinhDo}};
+
+	        var marker_${maDiaDanh}_diadanh = new google.maps.Marker({
+	            position: toado_${maDiaDanh}_LatLng,
+	            map: map,
+	            title: '${tenDiaDanh}'
+	        });
 		        
 		        /// thiet lap thong tin cho tung marker
 				        
-		       var noidung='<div >'+
+		       var noidung_${maDiaDanh} = '<div >'+
+		       '</br>Hình ảnh : '+'<html:img src="${hinhAnh}" height="100px" width="100px"></html:img>'+
 		         '</br>Tên địa danh : '+'<bean:write name="dd" property="tenDiaDanh"/>'+
 		      	'</br>Nội dung : '+'<bean:write name="dd" property="noiDung"/>'+ '</div>';
 		        
-		        	google.maps.event.addListener(marker,'click', function() {
-		        		if(infowindow==true) infowindow.close();
-		        		infowindow=new google.maps.InfoWindow({content:noidung});
-			        	infowindow.open(map, marker);
-			        	alert('xxx : '+'<bean:write name="dd" property="tenDiaDanh"/>');
-			        	
-					});
+		      	marker_${maDiaDanh}_diadanh.addListener('click', function() {
+		        	if(!infowindow) infowindow = new google.maps.InfoWindow();
+		        	infowindow.close();
+		        	infowindow.setContent("<div id='thr_${maDiaDanh}_con' class='thr_con clearfix'>"+noidung_${maDiaDanh}+"</div>");
+			        infowindow.open(map, marker_${maDiaDanh}_diadanh);	
+				});
 		        
 		        
 	    	</logic:iterate>
