@@ -53,7 +53,7 @@
 	</ul>
 	</li>
 
-	<li><a href="${pageContext.request.contextPath}/banDo.jsp"><i class="fa fa-map-marker"
+	<li><a href="${pageContext.request.contextPath}/ban-do.html"><i class="fa fa-map-marker"
 		aria-hidden="true"></i> <span>Bản Đồ</span>
 	<div class="clearfix"></div>
 	</a></li>

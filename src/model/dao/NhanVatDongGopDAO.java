@@ -41,7 +41,8 @@ public class NhanVatDongGopDAO {
 	public ArrayList<NhanVatDongGop> getListNhanVatDongGop() {
 		connection = da.getConnect();
 		String sql = "SELECT bdnv.MABDNV, bdnv.MANHANVAT, bdnv.USERNAME, a.TEN, CONVERT(nvarchar,bdnv.NGAYDANG,103) AS NGAYDANG, bdnv.NGUON, bdnv.PHEDUYET "+
-		" FROM BAIDANGNHANVAT bdnv INNER JOIN ACCOUNT AS a ON a.USERNAME = bdnv.USERNAME";
+		" FROM BAIDANGNHANVAT bdnv INNER JOIN ACCOUNT AS a ON a.USERNAME = bdnv.USERNAME " +
+		" WHERE a.PHANQUYEN = 0 ";
 		ResultSet rs = null;
 		try {
 			System.out.println(sql);
@@ -154,8 +155,14 @@ public class NhanVatDongGopDAO {
 				nhanVat.setMaNhanVat(rs.getInt("MANHANVAT"));
 				nhanVat.setTenNhanVat(rs.getString("TENNHANVAT"));
 				nhanVat.setMaGiaiDoan(rs.getInt("MAGIAIDOAN"));
-				nhanVat.setNamSinh(rs.getString("NAMSINH"));
-				nhanVat.setNamMat(rs.getString("NAMMAT"));
+				if(rs.getString("NAMSINH")!=null)
+					nhanVat.setNamSinh(rs.getString("NAMSINH"));
+				else
+					nhanVat.setNamSinh("N/A");
+				if(rs.getString("NAMMAT")!=null)
+					nhanVat.setNamMat(rs.getString("NAMMAT"));
+				else
+					nhanVat.setNamMat("N/A");
 				nhanVat.setTuNgaySKNV(rs.getString("TUNGAYSKNV"));
 				nhanVat.setDenNgaySKNV(rs.getString("DENNGAYSKNV"));
 				nhanVat.setTuNgayGDNV(rs.getString("TUNGAYGDNV"));

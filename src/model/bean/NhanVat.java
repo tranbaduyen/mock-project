@@ -29,8 +29,21 @@ public class NhanVat {
 	private int maBDNV;
 	private int maGDNV;
 	private int maSKNV;
+	private int luotXem;
 	
 
+	/**
+	 * @return the luotXem
+	 */
+	public int getLuotXem() {
+		return luotXem;
+	}
+	/**
+	 * @param luotXem the luotXem to set
+	 */
+	public void setLuotXem(int luotXem) {
+		this.luotXem = luotXem;
+	}
 	/**
 	 * @return the maNhanVat
 	 */

@@ -4,11 +4,15 @@
 <%@ taglib uri="/WEB-INF/struts-bean.tld" prefix="bean" %>
 <%@ taglib uri="/WEB-INF/struts-html.tld" prefix="html" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<style>
+	.img-logo img{
+		width: 50px;
+		height: 50px;
+	}
+</style>
 <div id="header">
-<a href="${pageContext.request.contextPath}/index.html"><h1 class="header-title" title="Dấu Ấn Việt">Dấu Ấn Việt</h1></a>
 
-
-
+	<a href="${pageContext.request.contextPath}/index.html"><h1 class="header-title" title="Dấu Ấn Việt">Dấu Ấn Việt</h1></a>
 
 <div class="right-search">
 <div id="search" style="  margin-right: 15px;">

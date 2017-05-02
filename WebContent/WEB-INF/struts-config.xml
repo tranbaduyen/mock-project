@@ -16,6 +16,10 @@ Configuration 1.3//EN" "http://struts.apache.org/dtds/struts-config_1_3.dtd">
 		<form-bean name="danhSachThoiKyForm" type="form.DanhSachThoiKyForm" />
 		<form-bean name="giaiDoanForm" type="form.GiaiDoanForm" />
 		<form-bean name="danhSachGiaiDoanForm" type="form.DanhSachGiaiDoanForm" />
+		<form-bean name="suKienForm" type="form.SuKienForm" />
+		<form-bean name="danhSachSuKienForm" type="form.DanhSachSuKienForm" />
+		<form-bean name="nhanVatForm" type="form.NhanVatForm" />
+		<form-bean name="danhSachNhanVatForm" type="form.DanhSachNhanVatForm" />
 		<form-bean name="diaDanhForm" type="form.DiaDanhForm" />
 		<form-bean name="danhSachDiaDanhGanForm" type="form.DanhSachDiaDanhGanForm" />
 		
@@ -124,6 +128,16 @@ Configuration 1.3//EN" "http://struts.apache.org/dtds/struts-config_1_3.dtd">
 			path="/admin/quanlybaiviet/suaGD" scope="request" type="action.SuaGiaiDoanAction">
 			<forward name="suaGD" path="/admin/quanlybaiviet/suaGiaiDoan.jsp" />
 			<forward name="suaGDxong" path="/admin/quanlybaiviet/danh-sach-giai-doan.html"  />
+		</action>
+		
+		<action  input="/admin/quanlybaiviet/danhSachSuKien.jsp" name="danhSachSuKienForm"
+			path="/admin/quanlybaiviet/danh-sach-su-kien" scope="request" type="action.DanhSachSuKienAction">
+			<forward name="dsSuKien" path="/admin/quanlybaiviet/danhSachSuKien.jsp" />
+		</action>
+		
+		<action  input="/admin/quanlybaiviet/danhSachNhanVat.jsp" name="danhSachNhanVatForm"
+			path="/admin/quanlybaiviet/danh-sach-nhan-vat" scope="request" type="action.DanhSachNhanVatAction">
+			<forward name="dsNhanVat" path="/admin/quanlybaiviet/danhSachNhanVat.jsp" />
 		</action>
 		
 		<action  input="/admin/thongke/thongke.jsp" name="thongKeForm"

@@ -50,7 +50,8 @@ public class SuKienDongGopDAO {
 	public ArrayList<SuKienDongGop> getListSuKienDongGop() {
 		connection = da.getConnect();
 		String sql = "SELECT bdsk.MABDSK, bdsk.MASUKIEN, bdsk.USERNAME, a.TEN, CONVERT(nvarchar,bdsk.NGAYDANG,103) AS NGAYDANG, bdsk.NGUON, bdsk.PHEDUYET "
-				+ " FROM   BAIDANGSUKIEN bdsk INNER JOIN ACCOUNT AS a ON a.USERNAME = bdsk.USERNAME";
+				+ " FROM   BAIDANGSUKIEN bdsk INNER JOIN ACCOUNT AS a ON a.USERNAME = bdsk.USERNAME "
+				+ " WHERE a.PHANQUYEN = 0 ";
 		ResultSet rs = null;
 		try {
 			System.out.println(sql);
@@ -69,6 +70,7 @@ public class SuKienDongGopDAO {
 				suKienDongGop.setMaSuKien(rs.getString("MASUKIEN"));
 				suKienDongGop.setUserName(rs.getString("USERNAME"));
 				suKienDongGop.setTen(rs.getString("TEN"));
+				suKienDongGop.setEmail(rs.getString("EMAIL"));
 				suKienDongGop.setNgayDang(rs.getString("NGAYDANG"));
 				suKienDongGop.setNguon(rs.getString("NGUON"));
 				suKienDongGop.setPheDuyet(rs.getInt("PHEDUYET"));

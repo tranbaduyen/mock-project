@@ -12,6 +12,7 @@ public class SuKienDongGop {
 	private int maBDSK;
 	private String maSuKien;
 	private String userName;
+	private String email;
 	private String ngayDang;
 	private String ten;
 	private String nguon;
@@ -20,6 +21,18 @@ public class SuKienDongGop {
 	private String hinhDaiDien;
 	
 	
+	/**
+	 * @return the email
+	 */
+	public String getEmail() {
+		return email;
+	}
+	/**
+	 * @param email the email to set
+	 */
+	public void setEmail(String email) {
+		this.email = email;
+	}
 	public String getHinhDaiDien() {
 		return hinhDaiDien;
 	}

@@ -48,9 +48,19 @@ public class NhanVatDAO {
 		try {
 			while (rs.next()) {
 				nhanVat = new NhanVat();
-				nhanVat.setTenSuKien(rs.getString("TENNHANVAT"));
-				nhanVat.setMaSuKien(rs.getInt("MANHANVAT"));
+				nhanVat.setMaNhanVat(rs.getInt("MANHANVAT"));
+				nhanVat.setTenNhanVat(rs.getString("TENNHANVAT"));
 				nhanVat.setNoiDung(rs.getString("NOIDUNG"));
+				nhanVat.setHinhAnh(rs.getString("HINHANH"));
+				if(rs.getString("NAMSINH")!=null)
+					nhanVat.setNamSinh(rs.getString("NAMSINH"));
+				else
+					nhanVat.setNamSinh("N/A");
+				if(rs.getString("NAMMAT")!=null)
+					nhanVat.setNamMat(rs.getString("NAMMAT"));
+				else
+					nhanVat.setNamMat("N/A");
+				nhanVat.setLuotXem(rs.getInt("LUOTXEM"));
 				list.add(nhanVat);
 			}
 		} catch (SQLException e) {

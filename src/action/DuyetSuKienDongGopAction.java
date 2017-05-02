@@ -21,6 +21,9 @@ import org.apache.struts.action.Action;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
+import org.apache.commons.mail.DefaultAuthenticator;
+import org.apache.commons.mail.Email;
+import org.apache.commons.mail.SimpleEmail;
 
 import form.BaiDongGopForm;
 
@@ -55,11 +58,11 @@ public class DuyetSuKienDongGopAction extends Action{
 		ArrayList<PhanLoaiSuKien> listPhanLoaiSuKien = phanLoaiSuKienBO.getListPhanLoaiSuKien();
 		baiDongGopForm.setListPhanLoaiSuKien(listPhanLoaiSuKien);
 		
-		//sua sinh vien
+		//
 		int maBDSK = baiDongGopForm.getMaBDSK();
 		int maSuKien = baiDongGopForm.getMaSuKien();
 		System.out.println(""+baiDongGopForm.getSubmit());
-		if("submit".equals(baiDongGopForm.getSubmit())){					//nhan nut Xac nhan o trang Them sinh vien
+		if("submit".equals(baiDongGopForm.getSubmit())){					
 			String tenSuKien= baiDongGopForm.getTenSuKien();
 			String ngayBatDau= baiDongGopForm.getNgayBatDau();
 			String ngayKetThuc = baiDongGopForm.getNgayKetThuc();
@@ -70,8 +73,38 @@ public class DuyetSuKienDongGopAction extends Action{
 			int pheDuyet = baiDongGopForm.getPheDuyet();
 			int maPhanLoai = baiDongGopForm.getMaPhanLoai();
 			suKienDongGopBO.duyetSuKienDongGop(maBDSK, pheDuyet);
+			if(pheDuyet==1){
+				try {            
+			           Email email = new SimpleEmail();
+			 
+			           // Cấu hình thông tin Email Server
+			           email.setHostName("smtp.googlemail.com");
+			           email.setSmtpPort(465);
+			           email.setAuthenticator(new DefaultAuthenticator("tranbaduyen1995@gmail.com","tmhntlccmld"));
+			            
+			           // Với gmail cái này là bắt buộc.
+			           email.setSSLOnConnect(true);
+			            
+			           // Người gửi
+			           email.setFrom("tranbaduyen1995@gmail.com");
+			            
+			           // Tiêu đề
+			           email.setSubject("Thông báo duyệt bài đóng góp của bạn.");
+			            
+			           // Nội dung email
+			           email.setMsg("Bài viết của bạn đã được admin duyệt. Cảm ơn bạn đã đóng góp bài viết cho website !");
+			            
+			           // Người nhận
+			           email.addTo("minhtamphan257@gmail.com");            
+			           email.send();
+			           System.out.println("Sent!!");
+			       } catch (Exception e) {
+			           e.printStackTrace();
+			       }
+			} 
+		   
 			return mapping.findForward("duyetSKxong");
-		} else {														//chuyen sang trang Sua sinh vien
+		} else {														
 			SuKien suKien = suKienDongGopBO.getThongTinSuKien(maBDSK);
 			baiDongGopForm.setMaSuKien(suKien.getMaSuKien());
 			baiDongGopForm.setTenSuKien(suKien.getTenSuKien());

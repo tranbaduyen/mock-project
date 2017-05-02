@@ -34,7 +34,9 @@ public class SuKienDAO {
 	
 	public ArrayList<SuKien> getListSuKien() {
 		connection = da.getConnect();
-		String sql = "SELECT * FROM SuKien";
+		String sql = "Select SUKIEN.*, GIAIDOAN.TENGIAIDOAN " +
+				" from SUKIEN inner join GIAIDOAN on GIAIDOAN.MAGIAIDOAN = SUKIEN.MAGIAIDOAN " +
+				"  " ;
 		ResultSet rs = null;
 		try {
 			Statement stmt = connection.createStatement();
@@ -49,7 +51,9 @@ public class SuKienDAO {
 			while (rs.next()) {
 				suKien = new SuKien();
 				suKien.setMaGiaiDoan(rs.getInt("MAGIAIDOAN"));
+				suKien.setTenGiaiDoan(rs.getString("TENGIAIDOAN"));
 				suKien.setTenSuKien(rs.getString("TENSUKIEN"));
+				suKien.setHinhAnh(rs.getString("HINHANH"));
 				suKien.setMaSuKien(rs.getInt("MASUKIEN"));
 				suKien.setNoiDung(rs.getString("NOIDUNG"));
 				list.add(suKien);
@@ -80,7 +84,9 @@ public class SuKienDAO {
 			while (rs.next()) {
 				suKien = new SuKien();
 				suKien.setMaGiaiDoan(rs.getInt("MAGIAIDOAN"));
+				suKien.setTenGiaiDoan(rs.getString("TENGIAIDOAN"));
 				suKien.setTenSuKien(rs.getString("TENSUKIEN"));
+				suKien.setHinhAnh(rs.getString("HINHANH"));
 				suKien.setMaSuKien(rs.getInt("MASUKIEN"));
 				suKien.setNoiDung(rs.getString("NOIDUNG"));
 				list.add(suKien);

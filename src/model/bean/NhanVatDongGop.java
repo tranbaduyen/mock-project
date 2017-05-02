@@ -11,10 +11,25 @@ public class NhanVatDongGop {
 	private int maBDNV;
 	private String maNhanVat;
 	private String userName;
+	private String email;
 	private String ngayDang;
 	private String ten;
 	private String nguon;
 	private int pheDuyet;
+	
+	
+	/**
+	 * @return the email
+	 */
+	public String getEmail() {
+		return email;
+	}
+	/**
+	 * @param email the email to set
+	 */
+	public void setEmail(String email) {
+		this.email = email;
+	}
 	/**
 	 * @return the maBDNV
 	 */
