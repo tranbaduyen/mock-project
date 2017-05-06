@@ -85,7 +85,7 @@ public class DuyetSuKienDongGopAction extends Action{
 		//
 		int maBDSK = baiDongGopForm.getMaBDSK();
 		int maSuKien = baiDongGopForm.getMaSuKien();
-		System.out.println(""+baiDongGopForm.getSubmit());
+		System.out.println("submit = "+baiDongGopForm.getSubmit());
 		if("submit".equals(baiDongGopForm.getSubmit())){					
 			String tenSuKien= baiDongGopForm.getTenSuKien();
 			String ngayBatDau= baiDongGopForm.getNgayBatDau();
@@ -98,30 +98,37 @@ public class DuyetSuKienDongGopAction extends Action{
 			int pheDuyet = baiDongGopForm.getPheDuyet();
 			int maPhanLoai = baiDongGopForm.getMaPhanLoai();
 			suKienDongGopBO.duyetSuKienDongGop(maBDSK, pheDuyet);
+			String tieuDeEmail = "Thông báo duyệt bài đóng góp của bạn.";
+			String noiDungEmail = "Bài viết của bạn đã được admin duyệt. Cảm ơn bạn đã đóng góp bài viết cho website !";
+			
 			if(pheDuyet==1){
-				try
-			      {
-			         Session session = Session.getDefaultInstance(properties,  
-			            new javax.mail.Authenticator() {
-			            protected PasswordAuthentication 
-			            getPasswordAuthentication() {
-			            return new 
-			            PasswordAuthentication(from, password);
-			            }});
-
-			         Message message = new MimeMessage(session);
-			         message.setFrom(new InternetAddress(from));
-			         message.setRecipients(Message.RecipientType.TO, 
-			            InternetAddress.parse(to));
-			         message.setSubject(subject);
-			         message.setText(body);
-			         Transport.send(message);
-			         System.out.println("Mess: "+ message.getSubject());
-			      }
-			      catch(Exception e)
-			      {
-			         e.printStackTrace();
-			      }
+				try {            
+			           Email email = new SimpleEmail();
+			 
+			           // Cấu hình thông tin Email Server
+			           email.setHostName("smtp.googlemail.com");
+			           email.setSmtpPort(465);
+			           email.setAuthenticator(new DefaultAuthenticator("tranbaduyen1995@gmail.com","tmhntlccmld"));
+			            
+			           // Với gmail cái này là bắt buộc.
+			           email.setSSLOnConnect(true);
+			            
+			           // Người gửi
+			           email.setFrom("tranbaduyen1995@gmail.com");
+			            
+			           // Tiêu đề
+			           email.setSubject(tieuDeEmail);
+			            
+			           // Nội dung email
+			           email.setMsg(noiDungEmail);
+			            
+			           // Người nhận
+			           email.addTo(to);            
+			           email.send();
+			           System.out.println("Sent to "+ to+ " !!!");
+			       } catch (Exception e) {
+			           e.printStackTrace();
+			       }
 			} 
 			
 			return mapping.findForward("duyetSKxong");
@@ -136,6 +143,7 @@ public class DuyetSuKienDongGopAction extends Action{
 			baiDongGopForm.setMaPhanLoai(suKien.getMaPhanLoai());
 			baiDongGopForm.setHinhAnh(suKien.getHinhAnh());
 			baiDongGopForm.setNoiDung(suKien.getNoiDung());
+			baiDongGopForm.setEmail(suKien.getEmail());
 			baiDongGopForm.setNguon(suKien.getNguon());
 			baiDongGopForm.setPheDuyet(suKien.getPheDuyet());
 			return mapping.findForward("duyetSK");

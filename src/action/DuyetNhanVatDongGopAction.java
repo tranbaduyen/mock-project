@@ -17,6 +17,18 @@ import model.bo.NhanVatDongGopBO;
 import model.bo.SuKienBO;
 import model.bo.ThoiKiBO;
 
+import com.sun.mail.handlers.message_rfc822;
+
+import org.apache.commons.mail.DefaultAuthenticator;
+import org.apache.commons.mail.Email;
+import org.apache.commons.mail.SimpleEmail;
+import java.util.Properties;
+import javax.mail.Message;
+import javax.mail.PasswordAuthentication;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 import org.apache.struts.action.Action;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
@@ -55,6 +67,20 @@ public class DuyetNhanVatDongGopAction extends Action{
 		ArrayList<SuKien> listSuKien = suKienBO.getListSuKien();
 		baiDongGopForm.setListSuKien(listSuKien);
 		
+		final String from = "tranbaduyen1995@gmail.com";
+		final String password = "tmhntlccmld";
+		String to ;
+		final String subject = "Thông báo duyệt bài viết đóng góp";
+		final String body = "Bài viết của bạn đã được admin duyệt. Cảm ơn bạn đã đóng góp bài viết cho website !!!";
+		Properties properties = new Properties();
+		{
+		      properties.put("mail.smtp.host", "smtp.gmail.com");
+		      properties.put("mail.smtp.socketFactory.port", "465");
+		      properties.put("mail.smtp.socketFactory.class",
+		                     "javax.net.ssl.SSLSocketFactory");
+		      properties.put("mail.smtp.auth", "true");
+		      properties.put("mail.smtp.port", "465");
+		}
 		//sua sinh vien
 		int maBDNV = baiDongGopForm.getMaBDNV();
 		int maNhanVat = baiDongGopForm.getMaNhanVat();
@@ -65,11 +91,44 @@ public class DuyetNhanVatDongGopAction extends Action{
 			String namMat = baiDongGopForm.getNamMat();
 			String hinhAnh = baiDongGopForm.getHinhAnh();
 			String nguon = baiDongGopForm.getNguon();
+			String email = baiDongGopForm.getEmail();
 			int maThoiKi = baiDongGopForm.getMaThoiKi();
 			int maGiaiDoan = baiDongGopForm.getMaGiaiDoan();
 			int pheDuyet = baiDongGopForm.getPheDuyet();
 			int maSuKien = baiDongGopForm.getMaSuKien();
 			nhanVatDongGopBO.duyetNhanVatDongGop(maBDNV, pheDuyet);
+			String tieuDeEmail = "Thông báo duyệt bài đóng góp của bạn.";
+			String noiDungEmail = "Bài viết của bạn đã được admin duyệt. Cảm ơn bạn đã đóng góp bài viết cho website !";
+			
+			if(pheDuyet==1){
+				try {            
+			           Email mail = new SimpleEmail();
+			 
+			           // Cấu hình thông tin Email Server
+			           mail.setHostName("smtp.googlemail.com");
+			           mail.setSmtpPort(465);
+			           mail.setAuthenticator(new DefaultAuthenticator("tranbaduyen1995@gmail.com","tmhntlccmld"));
+			            
+			           // Với gmail cái này là bắt buộc.
+			           mail.setSSLOnConnect(true);
+			            
+			           // Người gửi
+			           mail.setFrom("tranbaduyen1995@gmail.com");
+			            
+			           // Tiêu đề
+			           mail.setSubject(tieuDeEmail);
+			            
+			           // Nội dung email
+			           mail.setMsg(noiDungEmail);
+			            
+			           // Người nhận
+			           mail.addTo(email);            
+			           mail.send();
+			           System.out.println("Sent to "+email+ " !!!");
+			       } catch (Exception e) {
+			           e.printStackTrace();
+			       }
+			} 
 			return mapping.findForward("duyetNVxong");
 		} else {														//chuyen sang trang Sua sinh vien
 			NhanVat nhanVat = nhanVatDongGopBO.getThongTinNhanVat(maBDNV);
@@ -90,6 +149,7 @@ public class DuyetNhanVatDongGopAction extends Action{
 			baiDongGopForm.setNoiDung(nhanVat.getNoiDung());
 			baiDongGopForm.setNguon(nhanVat.getNguon());
 			baiDongGopForm.setPheDuyet(nhanVat.getPheDuyet());
+			baiDongGopForm.setEmail(nhanVat.getEmail());
 			return mapping.findForward("duyetNV");
 		}
 	}

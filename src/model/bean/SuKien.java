@@ -22,6 +22,7 @@ public class SuKien {
 	private int pheDuyet;
 	private int maThoiKi;
 	private String tenThoiKi;
+	private String email;
 	
 	private int soLuongLuotXemNgay;
 	private int soLuongLuotXemTuan;
@@ -35,6 +36,12 @@ public class SuKien {
 	private String tenNhanVat;
 
 	
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
 	public int getMaNhanVat() {
 		return maNhanVat;
 	}

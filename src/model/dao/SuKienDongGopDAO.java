@@ -49,7 +49,7 @@ public class SuKienDongGopDAO {
 
 	public ArrayList<SuKienDongGop> getListSuKienDongGop() {
 		connection = da.getConnect();
-		String sql = "SELECT bdsk.MABDSK, bdsk.MASUKIEN, bdsk.USERNAME, a.TEN, CONVERT(nvarchar,bdsk.NGAYDANG,103) AS NGAYDANG, bdsk.NGUON, bdsk.PHEDUYET "
+		String sql = "SELECT bdsk.MABDSK, bdsk.MASUKIEN, bdsk.USERNAME, a.TEN, a.EMAIL, CONVERT(nvarchar,bdsk.NGAYDANG,103) AS NGAYDANG, bdsk.NGUON, bdsk.PHEDUYET "
 				+ " FROM   BAIDANGSUKIEN bdsk INNER JOIN ACCOUNT AS a ON a.USERNAME = bdsk.USERNAME "
 				+ " WHERE a.PHANQUYEN = 0 ";
 		ResultSet rs = null;
@@ -179,8 +179,9 @@ public class SuKienDongGopDAO {
 		// TODO Auto-generated method stub
 		connection = da.getConnect();
 		String sql = String.format(
-				"select tk.MATHOIKI,gd.MAGIAIDOAN,sk.MASUKIEN,sk.TENSUKIEN,CONVERT(nvarchar,Year(sk.NGAYBATDAU),101) as NGAYBATDAU,CONVERT(nvarchar,Year(sk.NGAYKETTHUC),101) as NGAYKETTHUC,sk.MAGIAIDOAN,sk.MAPHANLOAI,sk.HINHANH,sk.NOIDUNG,bdsk.NGUON, bdsk.PHEDUYET "
+				"select tk.MATHOIKI,gd.MAGIAIDOAN,sk.MASUKIEN,sk.TENSUKIEN,a.EMAIL,CONVERT(nvarchar,Year(sk.NGAYBATDAU),101) as NGAYBATDAU,CONVERT(nvarchar,Year(sk.NGAYKETTHUC),101) as NGAYKETTHUC,sk.MAGIAIDOAN,sk.MAPHANLOAI,sk.HINHANH,sk.NOIDUNG,bdsk.NGUON, bdsk.PHEDUYET "
 						+ "FROM   BAIDANGSUKIEN bdsk "
+						+ "inner join ACCOUNT a on bdsk.USERNAME = a.USERNAME "
 						+ "inner join SUKIEN sk on bdsk.MASUKIEN = sk.MASUKIEN "
 						+ "inner join PHANLOAISUKIEN plsk on plsk.MAPHANLOAI = sk.MAPHANLOAI "
 						+ "inner join GIAIDOAN gd on gd.MAGIAIDOAN = sk.MAGIAIDOAN "
@@ -206,6 +207,7 @@ public class SuKienDongGopDAO {
 				suKien.setNgayBatDau(rs.getString("NGAYBATDAU"));
 				suKien.setNgayKetThuc(rs.getString("NGAYKETTHUC"));
 				suKien.setNoiDung(rs.getString("NOIDUNG"));
+				suKien.setEmail(rs.getString("EMAIL"));
 				suKien.setNguon(rs.getString("NGUON"));
 				suKien.setPheDuyet(rs.getInt("PHEDUYET"));
 			}

@@ -107,6 +107,10 @@
               <html:text property="nguon" styleClass="form-control" readonly="true"></html:text>
             </div>
             <div class="col-md-12 form-group1 group-mail">
+              <label class="control-label">Email</label>
+              <html:text property="email" styleClass="form-control" readonly="true"></html:text>
+            </div>
+            <div class="col-md-12 form-group1 group-mail">
               <label class="control-label">Phê Duyệt</label>
               	<html:radio property="pheDuyet" value="1" style="margin-right: 10px;">Đã Duyệt</html:radio>
 				<html:radio property="pheDuyet" value="0" style="margin: 0px 10px 0px 30px;">Đang Chờ</html:radio>

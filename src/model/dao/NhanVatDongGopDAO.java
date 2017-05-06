@@ -40,7 +40,7 @@ public class NhanVatDongGopDAO {
 	
 	public ArrayList<NhanVatDongGop> getListNhanVatDongGop() {
 		connection = da.getConnect();
-		String sql = "SELECT bdnv.MABDNV, bdnv.MANHANVAT, bdnv.USERNAME, a.TEN, CONVERT(nvarchar,bdnv.NGAYDANG,103) AS NGAYDANG, bdnv.NGUON, bdnv.PHEDUYET "+
+		String sql = "SELECT bdnv.MABDNV, bdnv.MANHANVAT, bdnv.USERNAME, a.TEN,a.EMAIL, CONVERT(nvarchar,bdnv.NGAYDANG,103) AS NGAYDANG, bdnv.NGUON, bdnv.PHEDUYET "+
 		" FROM BAIDANGNHANVAT bdnv INNER JOIN ACCOUNT AS a ON a.USERNAME = bdnv.USERNAME " +
 		" WHERE a.PHANQUYEN = 0 ";
 		ResultSet rs = null;
@@ -61,6 +61,7 @@ public class NhanVatDongGopDAO {
 				nhanVatDongGop.setMaNhanVat(rs.getString("MANHANVAT"));
 				nhanVatDongGop.setUserName(rs.getString("USERNAME"));
 				nhanVatDongGop.setTen(rs.getString("TEN"));
+				nhanVatDongGop.setEmail(rs.getString("EMAIL"));
 				nhanVatDongGop.setNgayDang(rs.getString("NGAYDANG"));
 				nhanVatDongGop.setNguon(rs.getString("NGUON"));
 				nhanVatDongGop.setPheDuyet(rs.getInt("PHEDUYET"));
@@ -121,12 +122,13 @@ public class NhanVatDongGopDAO {
 		// TODO Auto-generated method stub
 		connection = da.getConnect();
 		String sql = String.format(
-				"select tk.MATHOIKI,gd.MAGIAIDOAN,sk.MASUKIEN,nv.MANHANVAT,nv.TENNHANVAT, " +
+				"select tk.MATHOIKI,gd.MAGIAIDOAN,sk.MASUKIEN,a.EMAIL,nv.MANHANVAT,nv.TENNHANVAT, " +
 				"CONVERT(nvarchar,nv.NAMSINH,101) as NAMSINH, CONVERT(nvarchar,nv.NAMMAT,101) as NAMMAT, " +
 				"CONVERT(nvarchar,gdnv.TUNGAY,101) as TUNGAYGDNV,CONVERT(nvarchar,gdnv.DENNGAY,101) as DENNGAYGDNV, " +
 				"CONVERT(nvarchar,sknv.TUNGAY,101) as TUNGAYSKNV,CONVERT(nvarchar,sknv.DENNGAY,101) as DENNGAYSKNV, " +
 				"bdnv.MABDNV,gdnv.MAGDNV,sknv.MASKNV,nv.HINHANH,nv.NOIDUNG,bdnv.NGUON, bdnv.PHEDUYET " +
 				"FROM   BAIDANGNHANVAT bdnv " +
+				"inner join ACCOUNT a on bdnv.USERNAME = a.USERNAME " +
 				"inner join NHANVAT nv on bdnv.MANHANVAT = nv.MANHANVAT " +
 				"inner join SUKIENNHANVAT sknv on sknv.MANHANVAT = nv.MANHANVAT " +
 				"inner join SUKIEN sk on sk.MASUKIEN = sknv.MASUKIEN " +
@@ -168,6 +170,7 @@ public class NhanVatDongGopDAO {
 				nhanVat.setTuNgayGDNV(rs.getString("TUNGAYGDNV"));
 				nhanVat.setDenNgayGDNV(rs.getString("DENNGAYGDNV"));
 				nhanVat.setNoiDung(rs.getString("NOIDUNG"));
+				nhanVat.setEmail(rs.getString("EMAIL"));
 				nhanVat.setHinhAnh(rs.getString("HINHANH"));
 				nhanVat.setNguon(rs.getString("NGUON"));
 				nhanVat.setPheDuyet(rs.getInt("PHEDUYET"));
