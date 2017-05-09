@@ -107,7 +107,7 @@
 										</a>
 										<ul class="dropdown-menu drp-mnu">
 											<li> <a href="#"><i class="fa fa-cog"></i> Cài đặt</a> </li> 
-											<li> <html:link action="/admin/suaTK?userName=${userName}">
+											<li> <html:link action="/admin/quanlytaikhoan/suaTK?userName=${userName}">
 													<i class="fa fa-user"></i> Thông tin cá nhân</a>
 							                	</html:link></li> 
 											<li> <a href="${pageContext.request.contextPath}/logout.html"><i class="fa fa-sign-out"></i> Thoát</a> </li>

@@ -16,32 +16,32 @@
 <meta name="keywords" content="" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!-- Bootstrap Core CSS -->
-<link href="../assets/css/bootstrap.min.css" rel='stylesheet' type='text/css' />
+<link href="../../assets/css/bootstrap.min.css" rel='stylesheet' type='text/css' />
 <!-- Custom CSS -->
-<link href="../assets/css/style.css" rel='stylesheet' type='text/css' />
-<link rel="stylesheet" href="../assets/css/morris.css" type="text/css"/>
-<link href="../assets/css/dataTables.bootstrap.css" rel="stylesheet">
-<link href="../assets/css/dataTables.bootstrap.min.css" rel="stylesheet">
+<link href="../../assets/css/style.css" rel='stylesheet' type='text/css' />
+<link rel="stylesheet" href="../../assets/css/morris.css" type="text/css"/>
+<link href="../../assets/css/dataTables.bootstrap.css" rel="stylesheet">
+<link href="../../assets/css/dataTables.bootstrap.min.css" rel="stylesheet">
 <!-- Graph CSS -->
-<link href="../assets/css/font-awesome.css" rel="stylesheet">
+<link href="../../assets/css/font-awesome.css" rel="stylesheet">
 <!-- lined-icons -->
-<link rel="stylesheet" href="../assets/css/icon-font.min.css" type='text/css' /> 
+<link rel="stylesheet" href="../../assets/css/icon-font.min.css" type='text/css' /> 
 <!-- jQuery -->
-<script src="../assets/js/jquery-2.1.4.min.js"></script>
-<script src="../assets/js/jquery.min.js"></script>
+<script src="../../assets/js/jquery-2.1.4.min.js"></script>
+<script src="../../assets/js/jquery.min.js"></script>
 <!-- //jQuery -->
-<script src="../assets/js/jquery.dataTables.js"></script>
-<script src="../assets/js/dataTables.bootstrap.js"></script>
+<script src="../../assets/js/jquery.dataTables.js"></script>
+<script src="../../assets/js/dataTables.bootstrap.js"></script>
 <!-- tables -->
-<link rel="stylesheet" type="text/css" href="../assets/css/table-style.css" />
-<link rel="stylesheet" type="text/css" href="../assets/css/basictable.css" />
-<script type="text/javascript" src="../assets/js/jquery.basictable.min.js"></script>
-<script src="../assets/js/jquery-datatable.js"></script>
+<link rel="stylesheet" type="text/css" href="../../assets/css/table-style.css" />
+<link rel="stylesheet" type="text/css" href="../../assets/css/basictable.css" />
+<script type="text/javascript" src="../../assets/js/jquery.basictable.min.js"></script>
+<script src="../../assets/js/jquery-datatable.js"></script>
 
 <!-- //tables -->
 
 <!-- lined-icons -->
-<link rel="stylesheet" href="../assets/css/icon-font.min.css" type='text/css' />
+<link rel="stylesheet" href="../../assets/css/icon-font.min.css" type='text/css' />
 <!-- //lined-icons -->
 </head> 
 <body>
@@ -50,7 +50,7 @@
 <div class="left-content">
 	   <div class="mother-grid-inner">
             <!--header start here-->
-			<jsp:include page="header.html" flush="true"/>
+			<jsp:include page="../header.html" flush="true"/>
 			<!--heder end here-->
 <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="${pageContext.request.contextPath}/admin/dashboard.html">Trang Chủ</a><i class="fa fa-angle-right"></i>Tài Khoản</li>
@@ -64,7 +64,7 @@
 				    	<bean:write name="accountForm" property="ten"/>
 				    </h3>
 				    <br>
-					<html:form action="/admin/suaTK" method="post" acceptCharset="UTF-8">
+					<html:form action="/admin/quanlytaikhoan/suaTK" method="post" acceptCharset="UTF-8">
 				        <div class="row form-group">
 				            <label class="col-lg-2">User Name</label>
 				            <div class="col-lg-3">
@@ -132,18 +132,18 @@
 <!--inner block end here-->
 <!--copy rights start here-->
 <jsp:include
-	page="footer.jsp" />
+	page="/admin/footer.jsp" />
 <!--COPY rights end here-->
 </div>
 </div>
   <!--//content-inner-->
 		<!--/sidebar-menu-->
-				<jsp:include page="sidebar.jsp" />
+				<jsp:include page="/admin/sidebar.jsp" />
 <!--js -->
-<script src="../assets/js/jquery.nicescroll.js"></script>
-<script src="../assets/js/scripts.js"></script>
+<script src="../../assets/js/jquery.nicescroll.js"></script>
+<script src="../../assets/js/scripts.js"></script>
 <!-- Bootstrap Core JavaScript -->
-   <script src="../assets/js/bootstrap.min.js"></script>
+   <script src="../../assets/js/bootstrap.min.js"></script>
    <!-- /Bootstrap Core JavaScript -->	   
 
 </body>

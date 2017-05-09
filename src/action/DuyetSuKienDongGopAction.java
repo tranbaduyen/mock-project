@@ -98,8 +98,8 @@ public class DuyetSuKienDongGopAction extends Action{
 			int pheDuyet = baiDongGopForm.getPheDuyet();
 			int maPhanLoai = baiDongGopForm.getMaPhanLoai();
 			suKienDongGopBO.duyetSuKienDongGop(maBDSK, pheDuyet);
-			String tieuDeEmail = "Thông báo duyệt bài đóng góp của bạn.";
-			String noiDungEmail = "Bài viết của bạn đã được admin duyệt. Cảm ơn bạn đã đóng góp bài viết cho website !";
+			String tieuDeEmail = "About confirm your contribution. ";
+			String noiDungEmail = "Thank you for your contribution. Administrator has approved your contribution !";
 			
 			if(pheDuyet==1){
 				try {            

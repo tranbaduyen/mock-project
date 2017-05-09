@@ -65,19 +65,19 @@ Configuration 1.3//EN" "http://struts.apache.org/dtds/struts-config_1_3.dtd">
 			<forward name="qlDashboard" path="/admin/admin.jsp" />
 		</action>
 		
-		<action  input="/admin/quanLyTaiKhoan.jsp" name="quanLyAccountForm"
-			path="/admin/quan-ly-tai-khoan" scope="request" type="action.QuanLyAccountAction">
-			<forward name="dsAccount" path="/admin/quanLyTaiKhoan.jsp" />
+		<action  input="/admin/quanlytaikhoan/quanLyTaiKhoan.jsp" name="quanLyAccountForm"
+			path="/admin/quanlytaikhoan/quan-ly-tai-khoan" scope="request" type="action.QuanLyAccountAction">
+			<forward name="dsAccount" path="/admin/quanlytaikhoan/quanLyTaiKhoan.jsp" />
 		</action>
-		<action input="/suaAccount.jsp" name="accountForm"
-			path="/admin/suaTK" scope="request" type="action.SuaAccountAction">
-			<forward name="suaTK" path="/admin/suaAccount.jsp" />
-			<forward name="suaTKxong" path="/admin/quan-ly-tai-khoan.html"  />
+		<action input="/admin/quanlytaikhoan/suaAccount.jsp" name="accountForm"
+			path="/admin/quanlytaikhoan/suaTK" scope="request" type="action.SuaAccountAction">
+			<forward name="suaTK" path="/admin/quanlytaikhoan/suaAccount.jsp" />
+			<forward name="suaTKxong" path="/admin/quanlytaikhoan/quan-ly-tai-khoan.html"  />
 		</action>
-		<action input="/admin/quanLyTaiKhoan.jsp" name="accountForm"
-			path="/admin/xoaTK" scope="request" type="action.XoaAccountAction">
-			<forward name="xoaTK" path="/admin/xoaAccount.jsp" />
-			<forward name="xoaTKxong" path="/admin/quan-ly-tai-khoan.html" />
+		<action input="/admin/quanlytaikhoan/quanLyTaiKhoan.jsp" name="accountForm"
+			path="/admin/quanlytaikhoan/xoaTK" scope="request" type="action.XoaAccountAction">
+			<forward name="xoaTK" path="/admin/quanlytaikhoan/xoaAccount.jsp" />
+			<forward name="xoaTKxong" path="/admin/quanlytaikhoan/quan-ly-tai-khoan.html" />
 		</action>
 		
 		<action  input="/admin/quanlydonggop/quanLyDongGop.jsp" name="quanLyDongGopForm"

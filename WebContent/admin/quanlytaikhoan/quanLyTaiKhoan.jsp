@@ -16,32 +16,32 @@
 <meta name="keywords" content="" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!-- Bootstrap Core CSS -->
-<link href="../assets/css/bootstrap.min.css" rel='stylesheet' type='text/css' />
+<link href="../../assets/css/bootstrap.min.css" rel='stylesheet' type='text/css' />
 <!-- Custom CSS -->
-<link href="../assets/css/style.css" rel='stylesheet' type='text/css' />
-<link rel="stylesheet" href="../assets/css/morris.css" type="text/css"/>
-<link href="../assets/css/dataTables.bootstrap.css" rel="stylesheet">
-<link href="../assets/css/dataTables.bootstrap.min.css" rel="stylesheet">
+<link href="../../assets/css/style.css" rel='stylesheet' type='text/css' />
+<link rel="stylesheet" href="../../assets/css/morris.css" type="text/css"/>
+<link href="../../assets/css/dataTables.bootstrap.css" rel="stylesheet">
+<link href="../../assets/css/dataTables.bootstrap.min.css" rel="stylesheet">
 <!-- Graph CSS -->
-<link href="../assets/css/font-awesome.css" rel="stylesheet">
+<link href="../../assets/css/font-awesome.css" rel="stylesheet">
 <!-- lined-icons -->
-<link rel="stylesheet" href="../assets/css/icon-font.min.css" type='text/css' /> 
+<link rel="stylesheet" href="../../assets/css/icon-font.min.css" type='text/css' /> 
 <!-- jQuery -->
-<script src="../assets/js/jquery-2.1.4.min.js"></script>
-<script src="../assets/js/jquery.min.js"></script>
+<script src="../../assets/js/jquery-2.1.4.min.js"></script>
+<script src="../../assets/js/jquery.min.js"></script>
 <!-- //jQuery -->
-<script src="../assets/js/jquery.dataTables.js"></script>
-<script src="../assets/js/dataTables.bootstrap.js"></script>
+<script src="../../assets/js/jquery.dataTables.js"></script>
+<script src="../../assets/js/dataTables.bootstrap.js"></script>
 <!-- tables -->
-<link rel="stylesheet" type="text/css" href="../assets/css/table-style.css" />
-<link rel="stylesheet" type="text/css" href="../assets/css/basictable.css" />
-<script type="text/javascript" src="../assets/js/jquery.basictable.min.js"></script>
-<script src="../assets/js/jquery-datatable.js"></script>
+<link rel="stylesheet" type="text/css" href="../../assets/css/table-style.css" />
+<link rel="stylesheet" type="text/css" href="../../assets/css/basictable.css" />
+<script type="text/javascript" src="../../assets/js/jquery.basictable.min.js"></script>
+<script src="../../assets/js/jquery-datatable.js"></script>
 
 <!-- //tables -->
 
 <!-- lined-icons -->
-<link rel="stylesheet" href="../assets/css/icon-font.min.css" type='text/css' />
+<link rel="stylesheet" href="../../assets/css/icon-font.min.css" type='text/css' />
 <!-- //lined-icons -->
 </head> 
 <body>
@@ -107,10 +107,10 @@
 											</td>
 							                <td>
 							                	<bean:define id="userName" name="tk" property="userName"></bean:define>
-							                	<html:link action="/admin/suaTK?userName=${userName}">
+							                	<html:link action="/admin/quanlytaikhoan/suaTK?userName=${userName}">
 							                		<span class="glyphicon glyphicon-edit"> Sửa</span>
 							                	</html:link>
-							                	<html:link action="/admin/xoaTK?userName=${userName}" style="margin-left: 30px;">
+							                	<html:link action="/admin/quanlytaikhoan/xoaTK?userName=${userName}" style="margin-left: 30px;">
 							                		<span class="glyphicon glyphicon-trash"> Xóa</span>
 							                	</html:link>
 							                </td>
@@ -150,18 +150,18 @@
 <!--inner block end here-->
 <!--copy rights start here-->
 <jsp:include
-	page="footer.jsp" />
+	page="/admin/footer.jsp" />
 <!--COPY rights end here-->
 </div>
 </div>
   <!--//content-inner-->
 		<!--/sidebar-menu-->
-				<jsp:include page="sidebar.jsp" />
+				<jsp:include page="/admin/sidebar.jsp" />
 <!--js -->
-<script src="../assets/js/jquery.nicescroll.js"></script>
-<script src="../assets/js/scripts.js"></script>
+<script src="../../assets/js/jquery.nicescroll.js"></script>
+<script src="../../assets/js/scripts.js"></script>
 <!-- Bootstrap Core JavaScript -->
-   <script src="../assets/js/bootstrap.min.js"></script>
+   <script src="../../assets/js/bootstrap.min.js"></script>
    <!-- /Bootstrap Core JavaScript -->	   
 
 </body>

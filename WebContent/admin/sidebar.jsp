@@ -31,7 +31,7 @@
 		class="fa fa-signal nav_icon"></i><span>Thống Kê</span>
 	<div class="clearfix"></div>
 	</a></li>
-	<li><a href="${pageContext.request.contextPath}/admin/quan-ly-tai-khoan.html"><i class="fa fa-users"
+	<li><a href="${pageContext.request.contextPath}/admin/quanlytaikhoan/quan-ly-tai-khoan.html"><i class="fa fa-users"
 		aria-hidden="true"></i><span>Tài Khoản</span>
 	<div class="clearfix"></div>
 	</a></li>
